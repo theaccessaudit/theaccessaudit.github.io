@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<title>The Access Audit — WCAG 2.1 AA website accessibility audits</title>
+<meta name="description" content="WCAG 2.1 AA accessibility audits for small businesses and e-commerce. Severity-ranked reports your developer can act on today. From $495.">
+<!-- Absolute URLs required by scrapers. Live host is GitHub Pages; update
+     these (and sitemap.xml + robots.txt) if the site moves to
+     theaccessaudit.com after first revenue. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Access Audit">
+<meta property="og:title" content="The Access Audit — WCAG 2.1 AA website accessibility audits">
+<meta property="og:description" content="Severity-ranked accessibility fix lists your developer can act on the same day. Audits from $495.">
+<meta property="og:url" content="https://aaronsiebold.github.io/theaccessaudit/">
+<meta property="og:image" content="https://aaronsiebold.github.io/theaccessaudit/og.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --ink:#16181d; --muted:#5b6472; --line:#e6e8ec; --accent:#1d4ed8; --accent-ink:#fff; --bg:#fff; --soft:#f6f8fb; }
+  * { box-sizing:border-box; margin:0 }
+  body { font:17px/1.65 -apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg) }
+  main { max-width:920px; margin:0 auto; padding:0 1.25rem }
+  section { padding:3.5rem 0; border-bottom:1px solid var(--line) }
+  h1 { font-size:2.3rem; line-height:1.2; letter-spacing:-.02em }
+  h2 { font-size:1.5rem; margin-bottom:1.25rem; letter-spacing:-.01em }
+  p.lede { font-size:1.15rem; color:var(--muted); margin:1rem 0 1.75rem; max-width:44rem }
+  .btn { display:inline-block; background:var(--accent); color:var(--accent-ink); padding:.7rem 1.4rem; border-radius:10px; text-decoration:none; font-weight:600 }
+  .btn.ghost { background:transparent; color:var(--accent); border:1.5px solid var(--accent); margin-left:.6rem }
+  .stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-top:2.25rem }
+  .stat { background:var(--soft); border-radius:12px; padding:1.1rem 1.25rem }
+  .stat b { font-size:1.45rem; display:block }
+  .stat span { color:var(--muted); font-size:.9rem }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem }
+  .step { border:1px solid var(--line); border-radius:12px; padding:1.25rem }
+  .step em { color:var(--accent); font-style:normal; font-weight:700 }
+  .tiers { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem }
+  .tier { border:1px solid var(--line); border-radius:14px; padding:1.5rem }
+  .tier.hot { border-color:var(--accent); box-shadow:0 6px 24px rgba(29,78,216,.09) }
+  .tier .price { font-size:2rem; font-weight:700; margin:.4rem 0 }
+  .tier ul { padding-left:1.1rem; color:var(--muted); font-size:.95rem }
+  .tier li { margin:.35rem 0 }
+  .honest { background:var(--soft); border-radius:12px; padding:1.4rem 1.5rem; max-width:46rem }
+  footer { padding:2.5rem 0; color:var(--muted); font-size:.9rem }
+  .faq details { border:1px solid var(--line); border-radius:12px; padding:.9rem 1.15rem; margin:.6rem 0 }
+  .faq summary { cursor:pointer; font-weight:600 }
+  .faq p { margin-top:.6rem; color:var(--muted) }
+  .sticky-cta { display:none }
+  @media (max-width: 640px) {
+    body { padding-bottom:4.5rem }
+    /* stacked buttons: the ghost button's left margin misaligned it on wrap */
+    .btn { display:block; text-align:center }
+    .btn.ghost { margin-left:0; margin-top:.6rem }
+    .sticky-cta .btn { display:inline-block; margin-top:0 }
+    .sticky-cta { display:flex; position:fixed; inset:auto 0 0 0; z-index:10;
+      background:var(--bg); border-top:1px solid var(--line); padding:.6rem 1rem;
+      justify-content:space-between; align-items:center; gap:.75rem }
+    .sticky-cta span { font-size:.9rem; color:var(--muted) }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8eaee; --muted:#9aa3b2; --line:#2a2e36; --bg:#101216; --soft:#191c22; --accent:#4d7ef7 }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<section>
+  <h1>Find out what your website would lose a lawsuit over — this week, not after the demand letter.</h1>
+  <p class="lede">Over 6,000 ADA website lawsuits are projected for 2026, 79% of them against
+  e-commerce sites — and the EU's European Accessibility Act is now enforcing. We audit your site
+  against WCAG 2.1 AA, the standard courts and regulators actually reference, and hand you a
+  severity-ranked fix list your developer can start on the same day.</p>
+  <a class="btn" href="#pricing">See pricing</a>
+  <a class="btn ghost" href="#sample">View a sample report</a>
+  <div class="stat-row">
+    <div class="stat"><b>6,000+</b><span>ADA web lawsuits projected in 2026</span></div>
+    <div class="stat"><b>~1 in 4</b><span>suits hit sites that already had an accessibility widget</span></div>
+    <div class="stat"><b>$1,500–$7,000</b><span>what agencies charge for the same WCAG 2.1 AA standard</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><em>1 · Scan</em><p>We crawl your site and test every page against WCAG 2.1
+    Level A/AA using axe-core — the same engine inside Google Lighthouse.</p></div>
+    <div class="step"><em>2 · Review</em><p>On Professional and Compliance, a human runs keyboard-only and
+    screen-reader checks — the ~half of WCAG that no automated tool can judge.</p></div>
+    <div class="step"><em>3 · Fix list</em><p>You get an HTML + PDF report: every issue ranked
+    critical → minor, the exact elements affected, and a step-by-step fix guide per rule.</p></div>
+    <div class="step"><em>4 · Verify</em><p>The Compliance Package includes a re-scan after your fixes with a
+    before/after delta — proof of progress you can keep on file.</p></div>
+  </div>
+</section>
+
+<section id="sample">
+  <h2>The deliverable, not a promise</h2>
+  <p class="lede">This is an actual report generated by our pipeline (run against Deque's
+  intentionally broken demo site). What you see is what you get.</p>
+  <p><a class="btn ghost" style="margin-left:0" href="sample-report.html">Open the sample report →</a></p>
+</section>
+
+<section id="pricing">
+  <h2>Pricing</h2>
+  <div class="tiers">
+    <div class="tier"><h3>Starter Audit</h3><div class="price">$495</div>
+      <ul><li>Up to 10 key pages scanned</li><li>Severity-ranked HTML + PDF report</li>
+      <li>Element-level fix guidance per rule</li><li>Widget gap check included</li>
+      <li>3 business days</li></ul></div>
+    <div class="tier hot"><h3>Professional Audit</h3><div class="price">$1,450</div>
+      <ul><li>Up to 25 pages — everything in Starter</li>
+      <li>Manual keyboard-navigation testing</li><li>Screen-reader spot testing</li>
+      <li>Prioritized remediation roadmap with effort estimates</li>
+      <li>5 business days</li></ul></div>
+    <div class="tier"><h3>Compliance Package</h3><div class="price">$2,950</div>
+      <ul><li>Up to 50 pages — everything in Professional</li>
+      <li>VPAT 2.5 / ACR preparation for procurement</li>
+      <li>Post-remediation re-scan + delta report</li><li>Findings walkthrough call</li>
+      <li>7–10 business days</li></ul></div>
+  </div>
+  <p style="margin-top:1.25rem;color:var(--muted)">Typical professional audits at this
+  standard run $1,500–$7,000. Automation-first delivery is why these prices sit at the
+  floor of that range with a stronger deliverable. Need the issues fixed, not just found?
+  Remediation is quoted after the audit ($125/hr or fixed packages), and ongoing
+  monitoring — monthly re-scan, diff, and alert — is $149/mo.</p>
+</section>
+
+<section>
+  <h2>The honest part</h2>
+  <div class="honest">
+    <p><strong>No scan makes you "compliant," and neither does a widget.</strong> Automated tools
+    catch roughly half of WCAG issues; the rest need human judgment — which is why our Professional
+    and Compliance tiers include manual review, and why our reports list exactly what a scan can't check.
+    Roughly a quarter of recent ADA suits were filed against sites that already had an
+    accessibility overlay installed. We will never sell you a certification, a guarantee against
+    lawsuits, or legal advice — we sell you an accurate technical picture and a fix list.</p>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <h2>Questions worth asking anyone selling you an audit</h2>
+  <details><summary>Will this make my site "ADA compliant"?</summary>
+    <p>No one can honestly promise that — there is no official ADA certification for websites,
+    and no audit or widget prevents someone from filing a claim. What we deliver is a technical
+    assessment against WCAG 2.1 AA, the standard courts and regulators reference, plus the exact
+    fix list. Whether that meets your legal obligations is a question for your attorney.</p></details>
+  <details><summary>What do you need from me to start?</summary>
+    <p>Just your website address, and which pages matter most to you (checkout, booking, contact).
+    No logins, no code access, no install. Audits of pages behind a login are possible with a
+    test account you create for the engagement.</p></details>
+  <details><summary>Can you also fix what you find?</summary>
+    <p>Yes — remediation is quoted after the audit, from the actual findings ($125/hr or a fixed
+    package), so you never pay to fix problems you don't have. You're equally free to hand the
+    report to your own developer; it's written for exactly that.</p></details>
+  <details><summary>Why are your prices below the $1,500–$7,000 agencies charge?</summary>
+    <p>The scan pipeline is automated end-to-end and the reports generate themselves, so you pay
+    for the judgment — the manual keyboard and screen-reader review, the prioritization, the fix
+    guidance — not for hours of tooling work. Same WCAG 2.1 AA standard, less overhead.</p></details>
+  <details><summary>How fast do you reply?</summary>
+    <p>Within one business day, usually much faster. Starter audits deliver in 3 business days.</p></details>
+</section>
+
+<footer>
+  <p>Technical WCAG 2.1 AA assessments. Not legal advice, certification, or a litigation guarantee.</p>
+  <p><strong>The Access Audit</strong> — independent WCAG testing by Aaron Siebold.
+  <a href="mailto:theaccessauditor@gmail.com">theaccessauditor@gmail.com</a></p>
+  <p>Replies within one business day. <a href="privacy.html">Privacy</a></p>
+  <!-- NO POSTAL ADDRESS YET — deliberate, not an oversight.
+       A website does not require one. CAN-SPAM requires a physical postal
+       address in the footer of COLD EMAIL (docs/LEGITIMACY.md §4), so it must
+       be added here and in the email template BEFORE the first cold email
+       goes out. LinkedIn DMs and phone outreach are unaffected. A UPS Store
+       mailbox or registered-agent address is normal and compliant if Aaron
+       would rather not publish a home address. -->
+</footer>
+
+</main>
+<div class="sticky-cta"><span>Audits from $495</span><a class="btn" href="#pricing">See pricing</a></div>
+</body>
+</html>

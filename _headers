@@ -1,0 +1,11 @@
+# Security headers (checklist: security headers / force HTTPS is host-default).
+# Netlify and Cloudflare Pages both honor this _headers file format.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'
+
+# The sample report links out to Deque fix guides and uses inline styles too;
+# same policy applies. No scripts anywhere on this site — CSP enforces it.
