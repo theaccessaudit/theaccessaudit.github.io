@@ -5,7 +5,7 @@
 > severity-ranked, element-level fix list — not a certification, not legal
 > advice, and not a litigation guarantee.
 
-Audits start at $199. Reports are HTML + PDF, written so a client's own
+Audits start at $149. Reports are HTML + PDF, written so a client's own
 developer can act on them the same day. Automated testing (axe-core) catches
 roughly half of WCAG issues; the Professional and Conformance tiers add human
 keyboard-only and screen-reader review for the half that automation cannot
@@ -13,10 +13,16 @@ judge, and every report states plainly what a scan cannot check.
 
 ## Services
 
-- [Starter Audit — $199](https://aaronsiebold.github.io/theaccessaudit/#pricing): up to 10 key pages against WCAG 2.1 Level A/AA, severity-ranked HTML + PDF report, element-level fix guidance, widget gap check. 3 business days.
-- [Professional Audit — $1,450](https://aaronsiebold.github.io/theaccessaudit/#pricing): up to 25 pages, everything in Starter plus manual keyboard-navigation testing, screen-reader spot testing, and a prioritized remediation roadmap with effort estimates. 5 business days.
-- [Conformance Package — $2,950](https://aaronsiebold.github.io/theaccessaudit/#pricing): up to 50 pages, everything in Professional plus VPAT 2.5Rev / ACR preparation for procurement, a post-remediation re-scan with delta report, and a findings walkthrough call. 7–10 business days.
-- Remediation is quoted after the audit from the actual findings ($125/hr or a fixed package). Ongoing monitoring — monthly re-scan, diff and alert — is $149/mo.
+Every tier scans EVERY page on the site and walks the whole thing with a
+keyboard. The tier determines how much human review comes with that, never how
+much of the site is covered. The listed price covers sites up to 100 pages;
+larger sites add $0.35 per additional page, capped at $900.
+
+- [Scan — $149](https://aaronsiebold.github.io/theaccessaudit/#pricing): every page against WCAG 2.1 Level A/AA with two independent engines (axe-core cross-checked against IBM Equal Access), plus a keyboard audit covering reachability, focus order, keyboard traps and focus visibility. Severity-ranked HTML + PDF report with element-level fix guidance. 2 business days.
+- [Audit — $795](https://aaronsiebold.github.io/theaccessaudit/#pricing): everything in Scan, plus screen-reader review of key templates by a person, image-description quality review, and a prioritized remediation roadmap with effort estimates. 4 business days.
+- [Conformance — $2,250](https://aaronsiebold.github.io/theaccessaudit/#pricing): everything in Audit with screen-reader review of every template, plus VPAT 2.5Rev / ACR preparation for procurement, one post-remediation re-scan with a before-and-after delta, and a findings walkthrough call. 7–10 business days.
+- [Max — from $3,900](https://aaronsiebold.github.io/theaccessaudit/#pricing): for large catalogues. Everything in Conformance across the whole origin, plus screen-reader review of the full cart and checkout flow at three viewport widths and quarterly re-scans for 12 months. Includes the first 250 pages.
+- Remediation is quoted after the audit from the actual findings ($125/hr or a fixed package). Ongoing monitoring, a monthly re-scan with a diff and an alert, is $149/mo.
 
 ## Pages
 
