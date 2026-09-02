@@ -3,181 +3,948 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>The Access Audit — WCAG 2.1 AA website accessibility audits</title>
-<meta name="description" content="WCAG 2.1 AA accessibility audits for small businesses and e-commerce. Severity-ranked reports your developer can act on today. From $495.">
+<meta name="description" content="WCAG 2.1 AA accessibility audits for small businesses and e-commerce. Every page scanned and keyboard-tested, severity-ranked, with fix guidance your developer can act on today. From $149.">
+<link rel="canonical" href="https://aaronsiebold.github.io/theaccessaudit/">
 <!-- Absolute URLs required by scrapers. Live host is GitHub Pages; update
-     these (and sitemap.xml + robots.txt) if the site moves to
+     these (and sitemap.xml + robots.txt + llms.txt) if the site moves to
      theaccessaudit.com after first revenue. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Access Audit">
 <meta property="og:title" content="The Access Audit — WCAG 2.1 AA website accessibility audits">
-<meta property="og:description" content="Severity-ranked accessibility fix lists your developer can act on the same day. Audits from $495.">
+<meta property="og:description" content="Every page tested against WCAG 2.1 AA, keyboard walk included, severity-ranked with element-level fix guidance. Scans from $149, no page caps.">
 <meta property="og:url" content="https://aaronsiebold.github.io/theaccessaudit/">
 <meta property="og:image" content="https://aaronsiebold.github.io/theaccessaudit/og.png">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  :root { --ink:#16181d; --muted:#5b6472; --line:#e6e8ec; --accent:#1d4ed8; --accent-ink:#fff; --bg:#fff; --soft:#f6f8fb; }
-  * { box-sizing:border-box; margin:0 }
-  body { font:17px/1.65 -apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg) }
-  main { max-width:920px; margin:0 auto; padding:0 1.25rem }
-  section { padding:3.5rem 0; border-bottom:1px solid var(--line) }
-  h1 { font-size:2.3rem; line-height:1.2; letter-spacing:-.02em }
-  h2 { font-size:1.5rem; margin-bottom:1.25rem; letter-spacing:-.01em }
-  p.lede { font-size:1.15rem; color:var(--muted); margin:1rem 0 1.75rem; max-width:44rem }
-  .btn { display:inline-block; background:var(--accent); color:var(--accent-ink); padding:.7rem 1.4rem; border-radius:10px; text-decoration:none; font-weight:600 }
-  .btn.ghost { background:transparent; color:var(--accent); border:1.5px solid var(--accent); margin-left:.6rem }
-  .stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-top:2.25rem }
-  .stat { background:var(--soft); border-radius:12px; padding:1.1rem 1.25rem }
-  .stat b { font-size:1.45rem; display:block }
-  .stat span { color:var(--muted); font-size:.9rem }
-  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem }
-  .step { border:1px solid var(--line); border-radius:12px; padding:1.25rem }
-  .step em { color:var(--accent); font-style:normal; font-weight:700 }
-  .tiers { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem }
-  .tier { border:1px solid var(--line); border-radius:14px; padding:1.5rem }
-  .tier.hot { border-color:var(--accent); box-shadow:0 6px 24px rgba(29,78,216,.09) }
-  .tier .price { font-size:2rem; font-weight:700; margin:.4rem 0 }
-  .tier ul { padding-left:1.1rem; color:var(--muted); font-size:.95rem }
-  .tier li { margin:.35rem 0 }
-  .honest { background:var(--soft); border-radius:12px; padding:1.4rem 1.5rem; max-width:46rem }
-  footer { padding:2.5rem 0; color:var(--muted); font-size:.9rem }
-  .faq details { border:1px solid var(--line); border-radius:12px; padding:.9rem 1.15rem; margin:.6rem 0 }
-  .faq summary { cursor:pointer; font-weight:600 }
-  .faq p { margin-top:.6rem; color:var(--muted) }
-  .sticky-cta { display:none }
-  @media (max-width: 640px) {
-    body { padding-bottom:4.5rem }
-    /* stacked buttons: the ghost button's left margin misaligned it on wrap */
-    .btn { display:block; text-align:center }
-    .btn.ghost { margin-left:0; margin-top:.6rem }
-    .sticky-cta .btn { display:inline-block; margin-top:0 }
-    .sticky-cta { display:flex; position:fixed; inset:auto 0 0 0; z-index:10;
-      background:var(--bg); border-top:1px solid var(--line); padding:.6rem 1rem;
-      justify-content:space-between; align-items:center; gap:.75rem }
-    .sticky-cta span { font-size:.9rem; color:var(--muted) }
+/* Newsreader — SIL Open Font License 1.1. Latin subset, optical size pinned.
+   See fonts/LICENSE-Newsreader.txt. Display face only; body stays on the
+   system stack so text renders instantly and never shifts. */
+@font-face {
+  font-family: "Newsreader";
+  src: url("fonts/newsreader.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  /* Ink on warm paper — the deliverable is a document, so the site reads like one. */
+  --paper:      #fbfaf7;
+  --surface:    #ffffff;
+  --sunk:       #f4f2ed;
+  --ink:        #14161a;
+  --ink-2:      #4a5058;
+  --ink-3:      #6b7280;
+  --rule:       #e2ded6;
+  --rule-firm:  #cbc6bb;
+  --accent:     #17408f;
+  --accent-hi:  #0f2f6d;
+  --on-accent:  #ffffff;
+  --flag:       #8a3312;
+  --ok:         #1f6b3a;
+
+  --measure: 66ch;
+  --shell: 68rem;
+
+  /* 4px spacing scale */
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem;
+  --s6:2rem; --s7:3rem; --s8:4rem; --s9:6rem;
+
+  --step--1: clamp(.82rem, .79rem + .13vw, .89rem);
+  --step-0:  clamp(1.0625rem, 1.03rem + .17vw, 1.15rem);
+  --step-1:  clamp(1.25rem, 1.18rem + .33vw, 1.45rem);
+  --step-2:  clamp(1.55rem, 1.4rem + .7vw, 2rem);
+  --step-3:  clamp(2.1rem, 1.75rem + 1.7vw, 3.35rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper:      #0f1114;
+    --surface:    #16191e;
+    --sunk:       #1b1f25;
+    --ink:        #eceef1;
+    --ink-2:      #b3bac4;
+    --ink-3:      #949cA8;
+    --rule:       #272c34;
+    --rule-firm:  #3a414b;
+    --accent:     #9dbaff;
+    --accent-hi:  #c3d3ff;
+    --on-accent:  #0b0e13;
+    --flag:       #f0a181;
+    --ok:         #7fd39c;
   }
-  @media (prefers-color-scheme: dark) {
-    :root { --ink:#e8eaee; --muted:#9aa3b2; --line:#2a2e36; --bg:#101216; --soft:#191c22; --accent:#4d7ef7 }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: var(--step-0)/1.62 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Browser surfaces belong to the design too. */
+::selection { background: var(--accent); color: var(--on-accent); }
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+:target { scroll-margin-top: var(--s6); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+h1, h2, h3, .display {
+  font-family: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -.018em;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-3); letter-spacing: -.028em; }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); letter-spacing: -.012em; }
+p  { text-wrap: pretty; }
+
+a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: .07em; }
+a:hover { color: var(--accent-hi); text-decoration-thickness: .12em; }
+
+.skip {
+  position: absolute; left: var(--s4); top: var(--s4); z-index: 20;
+  transform: translateY(-250%);
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--rule-firm); border-radius: 8px;
+  padding: var(--s3) var(--s4); font-weight: 600; text-decoration: none;
+}
+.skip:focus { transform: none; }
+
+.shell { max-width: var(--shell); margin-inline: auto; padding-inline: var(--s5); }
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding-block: var(--s5);
+}
+.masthead .shell { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); align-items: baseline; }
+.wordmark {
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: var(--step-1); font-weight: 600; letter-spacing: -.02em;
+  color: var(--ink); text-decoration: none;
+}
+.masthead p { color: var(--ink-2); font-size: var(--step--1); }
+
+section { padding-block: var(--s8); border-bottom: 1px solid var(--rule); }
+section > .shell > * + * { margin-top: var(--s5); }
+h2 + p, h2 + .lede { margin-top: var(--s4); }
+.lede { font-size: var(--step-1); color: var(--ink-2); max-width: var(--measure); line-height: 1.5; }
+.prose { max-width: var(--measure); }
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.hero { padding-block: clamp(var(--s7), 7vw, var(--s9)) var(--s8); }
+.hero h1 { max-width: 20ch; }
+.cta-row { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s6); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.875rem; padding: var(--s3) var(--s5);
+  border-radius: 8px; border: 1px solid transparent;
+  background: var(--accent); color: var(--on-accent);
+  font-weight: 600; font-size: var(--step-0); text-decoration: none;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.btn:hover { background: var(--accent-hi); color: var(--on-accent); }
+.btn.ghost {
+  background: transparent; color: var(--accent);
+  border-color: var(--rule-firm);
+}
+.btn.ghost:hover { background: var(--sunk); border-color: var(--accent); color: var(--accent-hi); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+/* Evidence, set as a footnoted figure rather than three soft boxes. */
+.evidence { margin-top: var(--s7); border-top: 1px solid var(--rule-firm); }
+.evidence dl { margin: 0; }
+.evidence div {
+  display: grid; gap: var(--s1) var(--s5);
+  grid-template-columns: minmax(7.5rem, auto) 1fr;
+  padding-block: var(--s4);
+  border-bottom: 1px solid var(--rule);
+}
+.evidence dt {
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: var(--step-2); font-weight: 600;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -.02em; line-height: 1.05;
+}
+.evidence dd { margin: 0; color: var(--ink-2); align-self: center; font-size: var(--step--1); line-height: 1.5; }
+
+/* ── Process ──────────────────────────────────────────────────────── */
+.process { counter-reset: step; list-style: none; padding: 0; margin-top: var(--s6); }
+.process li {
+  counter-increment: step;
+  display: grid; gap: var(--s1) var(--s5);
+  grid-template-columns: 2.25rem 1fr;
+  padding-block: var(--s5);
+  border-top: 1px solid var(--rule);
+}
+.process li::before {
+  content: counter(step);
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: var(--step-1); font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-3); line-height: 1.3;
+}
+.process h3 { margin-bottom: var(--s2); }
+.process p { color: var(--ink-2); max-width: 58ch; }
+
+/* ── Pricing table ────────────────────────────────────────────────── */
+.table-wrap {
+  margin-top: var(--s3);
+  overflow-x: auto;
+  border: 1px solid var(--rule-firm);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.table-wrap:focus-visible { outline-offset: 0; }
+table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 46rem; }
+caption { text-align: left; padding: var(--s4) var(--s5); color: var(--ink-2); font-size: var(--step--1); border-bottom: 1px solid var(--rule); }
+.scroll-hint { display: none; color: var(--ink-2); font-size: var(--step--1); margin-top: var(--s5); }
+th, td { text-align: left; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--rule); vertical-align: top; font-size: var(--step--1); }
+thead th { vertical-align: bottom; border-bottom: 1px solid var(--rule-firm); }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+/* The row header stays put while the plan columns scroll, so a narrow screen
+   never shows a column of ticks with nothing to attach them to. */
+th[scope="row"] {
+  font-weight: 600; color: var(--ink);
+  position: sticky; left: 0; z-index: 1;
+  background: var(--surface);
+  border-right: 1px solid var(--rule);
+}
+thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--surface); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule-firm); }
+.tier-name { font-family: "Newsreader", ui-serif, Georgia, serif; font-size: var(--step-1); font-weight: 600; display: block; letter-spacing: -.015em; }
+.tier-price {
+  display: block; margin-top: var(--s2);
+  font-size: var(--step-2); font-weight: 600;
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -.02em;
+}
+.tier-for { display: block; margin-top: var(--s2); color: var(--ink-2); font-weight: 400; font-size: var(--step--1); white-space: normal; max-width: 15rem; }
+.pick { background: var(--sunk); }
+.pick .tier-name::after {
+  content: "Most bought";
+  display: block; margin-bottom: var(--s2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent);
+}
+.yes, .no { display: inline-flex; align-items: center; gap: var(--s2); }
+.yes svg, .no svg { flex: none; }
+.yes { color: var(--ok); }
+.no  { color: var(--ink-3); }
+.yes span, .no span { color: var(--ink-2); }
+
+.scale {
+  margin-top: var(--s6);
+  border-left: 1px solid var(--rule-firm);
+  padding: var(--s1) 0 var(--s1) var(--s5);
+  max-width: var(--measure);
+}
+.scale p + p { margin-top: var(--s3); }
+.scale .worked {
+  margin-top: var(--s4);
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--ink-2); font-size: var(--step--1);
+}
+.scale .worked b { color: var(--ink); font-weight: 600; }
+
+/* ── Reasons ──────────────────────────────────────────────────────── */
+.reasons { display: grid; gap: var(--s6); margin-top: var(--s6); }
+@media (min-width: 50rem) { .reasons { grid-template-columns: 1fr 1fr; gap: var(--s7); } }
+.reasons section { padding: 0; border: 0; }
+.reasons h3 { margin-bottom: var(--s3); }
+.reasons p { color: var(--ink-2); max-width: 46ch; }
+.reasons p + p { margin-top: var(--s3); }
+.cite { color: var(--ink-3); font-size: .8rem; line-height: 1.5; margin-top: var(--s4); }
+.cite a { color: var(--ink-3); }
+.effort { color: var(--ink-2); font-style: italic; }
+
+.honest {
+  background: var(--sunk);
+  border-radius: 14px;
+  padding: var(--s6);
+  max-width: 52rem;
+}
+.honest p + p { margin-top: var(--s4); }
+
+/* ── FAQ ──────────────────────────────────────────────────────────── */
+.faq { margin-top: var(--s6); max-width: var(--measure); }
+.faq details { border-top: 1px solid var(--rule); }
+.faq details:last-of-type { border-bottom: 1px solid var(--rule); }
+.faq summary {
+  cursor: pointer; list-style: none;
+  padding-block: var(--s4); padding-right: var(--s6);
+  font-weight: 600; position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: ""; position: absolute; right: var(--s2); top: 50%;
+  width: .58rem; height: .58rem; margin-top: -.42rem;
+  border-right: 1.5px solid var(--ink-3); border-bottom: 1.5px solid var(--ink-3);
+  transform: rotate(45deg); transition: transform .18s ease;
+}
+.faq details[open] summary::after { transform: rotate(-135deg); margin-top: -.16rem; }
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+.faq summary:hover { color: var(--accent); }
+.faq p { color: var(--ink-2); padding-bottom: var(--s5); }
+
+.site-foot { padding-block: var(--s7); color: var(--ink-2); font-size: var(--step--1); }
+.site-foot p + p { margin-top: var(--s3); }
+.site-foot strong { color: var(--ink); }
+
+.sticky-cta { display: none; }
+@media (max-width: 46rem) {
+  body { padding-bottom: 4.25rem; }
+  .cta-row .btn { flex: 1 1 100%; }
+  .evidence div { grid-template-columns: 1fr; gap: var(--s1); }
+  .sticky-cta {
+    display: flex; position: fixed; inset: auto 0 0 0; z-index: 10;
+    align-items: center; justify-content: space-between; gap: var(--s4);
+    background: var(--surface); border-top: 1px solid var(--rule-firm);
+    padding: var(--s3) var(--s5);
   }
+  .sticky-cta span { color: var(--ink-2); font-size: var(--step--1); }
+  .sticky-cta .btn { flex: none; padding-inline: var(--s5); }
+  /* Below this width the plan columns no longer fit, so say so. */
+  .scroll-hint { display: block; }
+}
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "ProfessionalService",
+   "@id": "https://aaronsiebold.github.io/theaccessaudit/#organization",
+   "name": "The Access Audit",
+   "url": "https://aaronsiebold.github.io/theaccessaudit/",
+   "email": "theaccessauditor@gmail.com",
+   "logo": "https://aaronsiebold.github.io/theaccessaudit/og.png",
+   "image": "https://aaronsiebold.github.io/theaccessaudit/og.png",
+   "description": "Independent WCAG 2.1 AA website accessibility audits for small businesses and e-commerce. Every page is scanned by two rule engines and walked with a keyboard; reports are severity-ranked with element-level fix guidance. Not legal advice, certification, or a litigation guarantee.",
+   "priceRange": "$149-$3900",
+   "knowsAbout": [
+    "WCAG 2.1 AA",
+    "Web Content Accessibility Guidelines",
+    "ADA Title III website accessibility",
+    "Section 508",
+    "European Accessibility Act",
+    "VPAT 2.5Rev",
+    "Accessibility Conformance Report",
+    "axe-core",
+    "IBM Equal Access",
+    "keyboard navigation testing",
+    "focus order",
+    "screen reader testing",
+    "accessibility remediation"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+   },
+   "availableLanguage": "en",
+   "founder": {
+    "@type": "Person",
+    "name": "Aaron Siebold"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "theaccessauditor@gmail.com",
+    "availableLanguage": "en"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://aaronsiebold.github.io/theaccessaudit/#website",
+   "url": "https://aaronsiebold.github.io/theaccessaudit/",
+   "name": "The Access Audit",
+   "description": "WCAG 2.1 AA accessibility audits for small businesses and e-commerce.",
+   "publisher": {
+    "@id": "https://aaronsiebold.github.io/theaccessaudit/#organization"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://aaronsiebold.github.io/theaccessaudit/#webpage",
+   "url": "https://aaronsiebold.github.io/theaccessaudit/",
+   "name": "The Access Audit — WCAG 2.1 AA website accessibility audits",
+   "isPartOf": {
+    "@id": "https://aaronsiebold.github.io/theaccessaudit/#website"
+   },
+   "about": {
+    "@id": "https://aaronsiebold.github.io/theaccessaudit/#organization"
+   },
+   "primaryImageOfPage": "https://aaronsiebold.github.io/theaccessaudit/og.png"
+  },
+  {
+   "@type": "Service",
+   "@id": "https://aaronsiebold.github.io/theaccessaudit/#service",
+   "name": "WCAG 2.1 AA website accessibility audit",
+   "serviceType": "Website accessibility audit",
+   "provider": {
+    "@id": "https://aaronsiebold.github.io/theaccessaudit/#organization"
+   },
+   "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+   },
+   "description": "Every page is tested against WCAG 2.1 Level A and AA by two independent rule engines and walked with a real keyboard, then delivered as a severity-ranked HTML and PDF fix list. The tier chosen determines how much human screen-reader review accompanies that, never how much of the site is covered. The listed price covers sites up to 100 pages; larger sites add $0.35 per additional page, capped at $900.",
+   "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Accessibility audit tiers",
+    "itemListElement": [
+     {
+      "@type": "Offer",
+      "name": "Scan",
+      "price": "149",
+      "priceCurrency": "USD",
+      "description": "Every page on your site tested against WCAG 2.1 Level A and AA by two independent engines (axe-core cross-checked against IBM Equal Access), plus a full keyboard and focus audit covering reachability, focus order, keyboard traps and focus visibility. Severity-ranked HTML and PDF report with element-level fix guidance. 2 business days.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://aaronsiebold.github.io/theaccessaudit/#pricing",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Scan",
+       "serviceType": "Website accessibility audit"
+      }
+     },
+     {
+      "@type": "Offer",
+      "name": "Audit",
+      "price": "795",
+      "priceCurrency": "USD",
+      "description": "Everything in Scan, plus screen-reader review of key templates by a person, image-description quality review, and a prioritized remediation roadmap with effort estimates. 4 business days.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://aaronsiebold.github.io/theaccessaudit/#pricing",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Audit",
+       "serviceType": "Website accessibility audit"
+      }
+     },
+     {
+      "@type": "Offer",
+      "name": "Conformance",
+      "price": "2250",
+      "priceCurrency": "USD",
+      "description": "Everything in Audit, with screen-reader review of every template, plus VPAT 2.5Rev / ACR preparation for procurement, one post-remediation re-scan with a before-and-after delta, and a findings walkthrough call. 7-10 business days.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://aaronsiebold.github.io/theaccessaudit/#pricing",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Conformance",
+       "serviceType": "Website accessibility audit"
+      }
+     },
+     {
+      "@type": "Offer",
+      "name": "Max",
+      "price": "3900",
+      "priceCurrency": "USD",
+      "description": "For large catalogues. Everything in Conformance across the whole origin, plus screen-reader review of the full cart and checkout flow and quarterly re-scans for 12 months. Includes the first 250 pages. 10-15 business days.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://aaronsiebold.github.io/theaccessaudit/#pricing",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Max",
+       "serviceType": "Website accessibility audit"
+      },
+      "priceSpecification": {
+       "@type": "PriceSpecification",
+       "priceCurrency": "USD",
+       "minPrice": "3900"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://aaronsiebold.github.io/theaccessaudit/#faq",
+   "isPartOf": {
+    "@id": "https://aaronsiebold.github.io/theaccessaudit/#webpage"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Will this make my site “ADA compliant”?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No one can honestly promise that — there is no official ADA certification for websites, and no audit or widget prevents someone from filing a claim. What we deliver is a technical assessment against WCAG 2.1 AA, the standard courts and regulators reference, plus the exact fix list. Whether that meets your legal obligations is a question for your attorney."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "My site only has about a dozen pages. Am I paying for capacity I do not need?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Every plan covers your whole site up to 100 pages at the listed price, so a 9-page restaurant site and a 40-page clinic site pay the same $149 for a Scan and get every page tested, keyboard walk included. There is no tier you have to round up into, and no plan that leaves part of your site unscanned. If you run a small local business, the $149 Scan is very often the right and only thing to buy — we will tell you so."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What do you need from me to start?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Just your website address, and which pages matter most to you (checkout, booking, contact). No logins, no code access, no install. Audits of pages behind a login are possible with a test account you create for the engagement."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can you also fix what you find?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes — remediation is quoted after the audit, from the actual findings ($125/hr or a fixed package), so you never pay to fix problems you do not have. You are equally free to hand the report to your own developer; it is written for exactly that."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do your prices compare to a specialist firm?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "accessible.org publishes $1,250 to $2,750 for a fully manual audit. Our Scan and Audit tiers sit below that and Conformance sits inside it. The difference is where the hours go: the scan, both rule engines and the keyboard walk are automated end to end and the reports generate themselves, so you pay for the judgment — the screen-reader review, the prioritization, the fix guidance — not for hours of tooling work. A fully manual audit is a different product and is worth what it costs; we are the faster, broader-coverage option, not a cheaper copy of it. Same WCAG 2.1 AA standard either way."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much of this is done by a machine, honestly?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "All of the scanning and all of the keyboard testing. Two rule engines check every page, and a second pass drives the site with the Tab key to find what a keyboard-only visitor cannot reach, where focus gets stuck, whether the order matches the way the page reads, and whether the focus indicator is visible enough to see. That is deterministic work and we do not pretend otherwise. What a machine cannot do is decide whether a button’s announced name actually describes what it does, whether an image description is useful or merely present, or how a screen-reader user experiences your checkout. That is a person, it is the reason the higher tiers cost more, and it is the honest boundary between the two."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How fast do you reply?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Within one business day, usually much faster. A Scan is delivered in 2 business days."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
-<main>
 
-<section>
-  <h1>Find out what your website would lose a lawsuit over — this week, not after the demand letter.</h1>
-  <p class="lede">Over 6,000 ADA website lawsuits are projected for 2026, 79% of them against
-  e-commerce sites — and the EU's European Accessibility Act is now enforcing. We audit your site
-  against WCAG 2.1 AA, the standard courts and regulators actually reference, and hand you a
-  severity-ranked fix list your developer can start on the same day.</p>
-  <a class="btn" href="#pricing">See pricing</a>
-  <a class="btn ghost" href="#sample">View a sample report</a>
-  <div class="stat-row">
-    <div class="stat"><b>6,000+</b><span>ADA web lawsuits projected in 2026</span></div>
-    <div class="stat"><b>~1 in 4</b><span>suits hit sites that already had an accessibility widget</span></div>
-    <div class="stat"><b>$1,500–$7,000</b><span>what agencies charge for the same WCAG 2.1 AA standard</span></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="wordmark" href="#main">The Access Audit</a>
+    <p>Independent WCAG 2.1 AA testing — Aaron Siebold</p>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="shell">
+    <h1>Most websites have accessibility problems the owner was never told about.</h1>
+    <p class="lede">We test every page of your site against WCAG 2.1 AA, the standard courts and
+    regulators reference, and hand you a plain, severity-ranked list of what to fix. You will know
+    exactly where you stand, whether or not you do anything about it.</p>
+    <div class="cta-row">
+      <a class="btn" href="#pricing">See pricing</a>
+      <a class="btn ghost" href="sample-report.html">Read a real report</a>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>How it works</h2>
-  <div class="steps">
-    <div class="step"><em>1 · Scan</em><p>We crawl your site and test every page against WCAG 2.1
-    Level A/AA using axe-core — the same engine inside Google Lighthouse.</p></div>
-    <div class="step"><em>2 · Review</em><p>On Professional and Compliance, a human runs keyboard-only and
-    screen-reader checks — the ~half of WCAG that no automated tool can judge.</p></div>
-    <div class="step"><em>3 · Fix list</em><p>You get an HTML + PDF report: every issue ranked
-    critical → minor, the exact elements affected, and a step-by-step fix guide per rule.</p></div>
-    <div class="step"><em>4 · Verify</em><p>The Compliance Package includes a re-scan after your fixes with a
-    before/after delta — proof of progress you can keep on file.</p></div>
+<section id="why">
+  <div class="shell">
+    <h2>Two reasons people fix this</h2>
+    <div class="reasons">
+      <section>
+        <h3>Customers who cannot finish</h3>
+        <p>More than 1 in 4 US adults has some type of disability. When a checkout cannot be
+        completed with a keyboard, or a product image has no description, that is not an abstract
+        standards violation. It is a customer who wanted to buy from you and left.</p>
+        <p>This is the reason that pays for itself, and it is the reason we lead with.</p>
+        <p class="cite">Prevalence figure: US Centers for Disease Control and Prevention,
+        <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html">Disability Impacts All of Us</a>.</p>
+      </section>
+      <section>
+        <h3>The legal picture, as context</h3>
+        <p>Filings are rising, and they concentrate in retail. That is the industry picture, not
+        a prediction about you: we have no idea whether anyone has any claim against your site, we
+        will never suggest otherwise, and we do not sell certification or lawsuit immunity.</p>
+      </section>
+    </div>
+
+    <div class="evidence">
+      <dl>
+        <div>
+          <dt>6,000+</dt>
+          <dd>ADA website lawsuits <em>projected</em> in the United States for 2026, nearly 20%
+          above 2025.</dd>
+        </div>
+        <div>
+          <dt>~70%</dt>
+          <dd>of 2025 filings were against e-commerce sites. Shopify was the most-named platform,
+          in 33.4% of 2025 filings and 44.3% of those in the first quarter of 2026.</dd>
+        </div>
+        <div>
+          <dt>~1 in 4</dt>
+          <dd>of those sites had already installed an accessibility widget. Buying a script tag is
+          not the same as fixing the site.</dd>
+        </div>
+      </dl>
+      <p class="cite">Projection and category share: UsableNet. Platform and widget figures:
+      EcomBack&rsquo;s 2025 annual and Q1 2026 lawsuit reports. Figures are the industry-wide
+      picture and say nothing about any individual site.</p>
+    </div>
+  </div>
+</section>
+
+<section id="how"><section id="how">
+  <div class="shell">
+    <h2>How it works</h2>
+    <p class="lede">Four steps. You send a URL; you get a document your developer can work from.</p>
+    <ol class="process">
+      <li>
+        <div>
+          <h3>Scan</h3>
+          <p>We crawl your site and test every page against WCAG 2.1 Level A and AA with two
+          independent engines: axe-core, the engine inside Google Lighthouse, cross-checked
+          against IBM Equal Access. Two rule sets catch what either one alone would miss.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Drive the keyboard</h3>
+          <p>A second pass walks your site with the Tab key and records what a keyboard-only
+          visitor experiences: anything they cannot reach, anywhere focus gets stuck, whether the
+          order makes sense, and whether they can see where they are. This runs on every plan,
+          including the cheapest one.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Judge what a machine cannot</h3>
+          <p>On Audit and above, a person listens to the site with a screen reader and decides the
+          things no tool can: whether a button&rsquo;s announced name actually describes what it
+          does, whether the reading order tells a coherent story, whether an image description is
+          useful or just present.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Fix list, then verify</h3>
+          <p>You get an HTML and PDF report: every issue ranked critical through minor, the exact
+          elements affected, and a step-by-step fix guide for each rule, written to be handed
+          straight to a developer. Conformance and Max re-scan after your fixes land and show the
+          before-and-after delta.</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
 <section id="sample">
-  <h2>The deliverable, not a promise</h2>
-  <p class="lede">This is an actual report generated by our pipeline (run against Deque's
-  intentionally broken demo site). What you see is what you get.</p>
-  <p><a class="btn ghost" style="margin-left:0" href="sample-report.html">Open the sample report →</a></p>
+  <div class="shell">
+    <h2>The deliverable, not a promise</h2>
+    <p class="lede">This is an actual report from our pipeline, run against Deque's intentionally
+    broken demo site. What you see is what you get.</p>
+    <p><a class="btn ghost" href="sample-report.html">Open the sample report</a></p>
+  </div>
 </section>
 
 <section id="pricing">
-  <h2>Pricing</h2>
-  <div class="tiers">
-    <div class="tier"><h3>Starter Audit</h3><div class="price">$495</div>
-      <ul><li>Up to 10 key pages scanned</li><li>Severity-ranked HTML + PDF report</li>
-      <li>Element-level fix guidance per rule</li><li>Widget gap check included</li>
-      <li>3 business days</li></ul></div>
-    <div class="tier hot"><h3>Professional Audit</h3><div class="price">$1,450</div>
-      <ul><li>Up to 25 pages — everything in Starter</li>
-      <li>Manual keyboard-navigation testing</li><li>Screen-reader spot testing</li>
-      <li>Prioritized remediation roadmap with effort estimates</li>
-      <li>5 business days</li></ul></div>
-    <div class="tier"><h3>Compliance Package</h3><div class="price">$2,950</div>
-      <ul><li>Up to 50 pages — everything in Professional</li>
-      <li>VPAT 2.5 / ACR preparation for procurement</li>
-      <li>Post-remediation re-scan + delta report</li><li>Findings walkthrough call</li>
-      <li>7–10 business days</li></ul></div>
+  <div class="shell">
+    <h2 id="pricing-h">Pricing</h2>
+    <p class="lede">Every plan scans <strong>every page on your site</strong> and drives the whole
+    thing with a keyboard. What the tiers actually sell is human hours, so the price follows the
+    work: the machine half costs the same whether your site has nine pages or nine hundred.</p>
+
+    <p class="scroll-hint">The plan columns scroll sideways on a narrow screen; the row
+    labels stay put.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="pricing-h">
+      <table>
+        <caption>All prices in USD. Turnaround is in business days from the day we receive your URL.</caption>
+        <thead>
+          <tr>
+            <td></td>
+            <th scope="col">
+              <span class="tier-name">Scan</span>
+              <span class="tier-price">$149</span>
+              <span class="tier-for">Local and service sites. Everything a machine can test, nothing you have to book.</span>
+            </th>
+            <th scope="col" class="pick">
+              <span class="tier-name">Audit</span>
+              <span class="tier-price">$795</span>
+              <span class="tier-for">Small e-commerce, clinics, anyone who has had a letter.</span>
+            </th>
+            <th scope="col">
+              <span class="tier-name">Conformance</span>
+              <span class="tier-price">$2,250</span>
+              <span class="tier-for">Procurement, grants and enterprise vendor review.</span>
+            </th>
+            <th scope="col">
+              <span class="tier-name">Max</span>
+              <span class="tier-price">from $3,900</span>
+              <span class="tier-for">Large catalogues where checkout is the exposure.</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Pages scanned</th>
+            <td>Every page</td>
+            <td class="pick">Every page</td>
+            <td>Every page</td>
+            <td>Every page, whole origin</td>
+          </tr>
+          <tr>
+            <th scope="row">Automated engines</th>
+            <td>axe-core + IBM Equal Access</td>
+            <td class="pick">axe-core + IBM Equal Access</td>
+            <td>axe-core + IBM Equal Access</td>
+            <td>axe-core + IBM Equal Access</td>
+          </tr>
+          <tr>
+            <th scope="row">Keyboard, focus and trap audit</th>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Severity-ranked report, HTML + PDF</th>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Element-level fix guidance</th>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Screen-reader review by a person</th>
+            <td><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Key templates</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Every template</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Every template, plus full checkout</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Image-description quality review</th>
+            <td><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Prioritized remediation roadmap</th>
+            <td><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>With effort estimates</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>With effort estimates</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>With effort estimates</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">VPAT 2.5Rev / ACR for procurement</th>
+            <td><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td class="pick"><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Post-fix re-scan with delta</th>
+            <td><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td class="pick"><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Once</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quarterly for 12 months</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Findings walkthrough call</th>
+            <td><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td class="pick"><span class="no"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M3 7.5h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Not included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Turnaround</th>
+            <td>2 days</td>
+            <td class="pick">4 days</td>
+            <td>7–10 days</td>
+            <td>10–15 days</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="scale">
+      <h3>Why the entry price is what it is</h3>
+      <p>The scan, the two rule engines and the keyboard walk are all automated and run
+      unattended, so they cost us close to nothing and we do not charge as though they were
+      hand work. That is the whole reason a nine-page restaurant pays $149 and gets the same
+      keyboard testing a large retailer gets. It used to be a four-figure line item; it is
+      software now, and the price should say so.</p>
+      <p>What is left is genuinely a person&rsquo;s time, and that is what the higher tiers buy:
+      listening to the site with a screen reader, deciding whether an announced name makes sense,
+      writing a VPAT, sitting on a call. <span class="effort">Longer and harder work, higher
+      price</span> &mdash; and nothing above the entry tier is sold to a business that does not
+      need it.</p>
+    </div>
+
+    <div class="scale">
+      <h3>Bigger sites</h3>
+      <p>The listed price covers your whole site up to 100 pages, so a 12-page site pays exactly
+      the listed price. There is no bracket to round up into. Past 100 pages, every plan adds a
+      flat <strong>$0.35 per additional page, capped at $900</strong> no matter how large the site
+      gets. Max includes the first 250.</p>
+      <p>The number of pages is not the number of problems. A 1,500-product store is usually five
+      or six templates repeated. Fix the product template once and you have fixed 1,200 pages.
+      That is why the report groups findings by template, why the per-page rate is small, and why
+      the cap exists at all.</p>
+      <p class="worked">Worked example, a 1,546-page Shopify catalogue:<br>
+      Scan <b>$149 + 1,446 &times; $0.35 = $655</b> &middot;
+      Audit <b>$1,301</b> &middot;
+      Max <b>$3,900 + 1,296 &times; $0.35 = $4,354</b></p>
+    </div>
+
+    <div class="scale">
+      <h3>Getting it fixed</h3>
+      <p>Remediation is quoted from your actual findings once the audit is done (<strong>$125 per
+      hour, or a fixed price for the whole list</strong>), so you never pay to fix problems you do
+      not have. You are equally free to hand the report to your own developer; it is written for
+      exactly that. Ongoing monitoring, a monthly re-scan with a diff and an alert, is $149/month.</p>
+      <p class="worked">For comparison, accessible.org publishes <b>$1,250&ndash;$2,750</b> for a
+      fully manual audit at $100&ndash;$250 per primary page. A fully manual audit is a different
+      product and is worth what it costs; we are the faster, broader-coverage option, not a cheaper
+      copy of it. Same WCAG 2.1 AA standard either way.</p>
+      <p class="cite">The IRS Disabled Access Credit (<a href="https://www.irs.gov/forms-pubs/about-form-8826">Form 8826</a>)
+      may apply to accessibility work &mdash; worth asking your tax preparer about.</p>
+    </div>
   </div>
-  <p style="margin-top:1.25rem;color:var(--muted)">Typical professional audits at this
-  standard run $1,500–$7,000. Automation-first delivery is why these prices sit at the
-  floor of that range with a stronger deliverable. Need the issues fixed, not just found?
-  Remediation is quoted after the audit ($125/hr or fixed packages), and ongoing
-  monitoring — monthly re-scan, diff, and alert — is $149/mo.</p>
 </section>
 
-<section>
-  <h2>The honest part</h2>
-  <div class="honest">
-    <p><strong>No scan makes you "compliant," and neither does a widget.</strong> Automated tools
-    catch roughly half of WCAG issues; the rest need human judgment — which is why our Professional
-    and Compliance tiers include manual review, and why our reports list exactly what a scan can't check.
-    Roughly a quarter of recent ADA suits were filed against sites that already had an
-    accessibility overlay installed. We will never sell you a certification, a guarantee against
-    lawsuits, or legal advice — we sell you an accurate technical picture and a fix list.</p>
+<section id="honest">
+  <div class="shell">
+    <h2>The honest part</h2>
+    <div class="honest">
+      <p><strong>No scan makes you &ldquo;compliant,&rdquo; and neither does a widget.</strong>
+      Automated tools catch roughly half of WCAG issues &mdash; that is axe-core&rsquo;s own
+      published figure for its own engine &mdash; which is why the Audit tier and above put a
+      person in front of a screen reader, and why every report we send lists exactly what a scan
+      cannot check.</p>
+      <p>Be careful with overlay widgets. Roughly a quarter of 2025 ADA web filings were against
+      sites that already had one installed, and in April 2025 the Federal Trade Commission
+      finalised an order requiring one overlay vendor to pay $1,000,000 over claims that its
+      product could make any website compliant. That is one vendor&rsquo;s advertising, not a
+      verdict on every tool in the category &mdash; but it is a regulator on the record, and it is
+      worth knowing before you buy a script tag that promises to solve this.</p>
+      <p>We will never sell you a certification, a guarantee against lawsuits, or legal advice. We
+      sell you an accurate technical picture and a fix list.</p>
+    </div>
   </div>
 </section>
 
-<section class="faq" id="faq">
-  <h2>Questions worth asking anyone selling you an audit</h2>
-  <details><summary>Will this make my site "ADA compliant"?</summary>
-    <p>No one can honestly promise that — there is no official ADA certification for websites,
-    and no audit or widget prevents someone from filing a claim. What we deliver is a technical
-    assessment against WCAG 2.1 AA, the standard courts and regulators reference, plus the exact
-    fix list. Whether that meets your legal obligations is a question for your attorney.</p></details>
-  <details><summary>What do you need from me to start?</summary>
-    <p>Just your website address, and which pages matter most to you (checkout, booking, contact).
-    No logins, no code access, no install. Audits of pages behind a login are possible with a
-    test account you create for the engagement.</p></details>
-  <details><summary>Can you also fix what you find?</summary>
-    <p>Yes — remediation is quoted after the audit, from the actual findings ($125/hr or a fixed
-    package), so you never pay to fix problems you don't have. You're equally free to hand the
-    report to your own developer; it's written for exactly that.</p></details>
-  <details><summary>Why are your prices below the $1,500–$7,000 agencies charge?</summary>
-    <p>The scan pipeline is automated end-to-end and the reports generate themselves, so you pay
-    for the judgment — the manual keyboard and screen-reader review, the prioritization, the fix
-    guidance — not for hours of tooling work. Same WCAG 2.1 AA standard, less overhead.</p></details>
-  <details><summary>How fast do you reply?</summary>
-    <p>Within one business day, usually much faster. Starter audits deliver in 3 business days.</p></details>
+<section id="faq">
+  <div class="shell">
+    <h2>Questions worth asking anyone selling you an audit</h2>
+    <div class="faq">
+      <details>
+        <summary>Will this make my site “ADA compliant”?</summary>
+        <p>No one can honestly promise that — there is no official ADA certification for websites,
+        and no audit or widget prevents someone from filing a claim. What we deliver is a technical
+        assessment against WCAG 2.1 AA, the standard courts and regulators reference, plus the exact
+        fix list. Whether that meets your legal obligations is a question for your attorney.</p>
+      </details>
+      <details>
+        <summary>My site only has about a dozen pages. Am I paying for capacity I do not need?</summary>
+        <p>No. Every plan covers your whole site up to 100 pages at the listed price, so a 9-page
+        restaurant site and a 40-page clinic site pay the same $149 for a Scan and get every page
+        tested, keyboard walk included. There is no tier you have to round up into, and no plan
+        that leaves part of your site unscanned. If you run a small local business, the $149 Scan
+        is very often the right and only thing to buy &mdash; we will tell you so.</p>
+      </details>
+      <details>
+        <summary>What do you need from me to start?</summary>
+        <p>Just your website address, and which pages matter most to you (checkout, booking,
+        contact). No logins, no code access, no install. Audits of pages behind a login are possible
+        with a test account you create for the engagement.</p>
+      </details>
+      <details>
+        <summary>Can you also fix what you find?</summary>
+        <p>Yes — remediation is quoted after the audit, from the actual findings ($125/hr or a fixed
+        package), so you never pay to fix problems you do not have. You are equally free to hand the
+        report to your own developer; it is written for exactly that.</p>
+      </details>
+      <details>
+        <summary>How do your prices compare to a specialist firm?</summary>
+        <p>accessible.org publishes $1,250 to $2,750 for a fully manual audit. Our Scan and Audit
+        tiers sit below that and Conformance sits inside it. The difference is where the hours go:
+        the scan, both rule engines and the keyboard walk are automated end to end and the reports
+        generate themselves, so you pay for the judgment &mdash; the screen-reader review, the
+        prioritization, the fix guidance &mdash; not for hours of tooling work. A fully manual
+        audit is a different product and is worth what it costs; we are the faster,
+        broader-coverage option, not a cheaper copy of it. Same WCAG 2.1 AA standard either way.</p>
+      </details>
+      <details>
+        <summary>How much of this is done by a machine, honestly?</summary>
+        <p>All of the scanning and all of the keyboard testing. Two rule engines check every page,
+        and a second pass drives the site with the Tab key to find what a keyboard-only visitor
+        cannot reach, where focus gets stuck, whether the order matches the way the page reads, and
+        whether the focus indicator is visible enough to see. That is deterministic work and we do
+        not pretend otherwise.</p>
+        <p>What a machine cannot do is decide whether a button&rsquo;s announced name actually
+        describes what it does, whether an image description is useful or merely present, or how a
+        screen-reader user experiences your checkout. That is a person, it is the reason the higher
+        tiers cost more, and it is the honest boundary between the two.</p>
+      </details>
+      <details>
+        <summary>How fast do you reply?</summary>
+        <p>Within one business day, usually much faster. A Scan is delivered in 2 business days.</p>
+      </details>
+    </div>
+  </div>
 </section>
-
-<footer>
-  <p>Technical WCAG 2.1 AA assessments. Not legal advice, certification, or a litigation guarantee.</p>
-  <p><strong>The Access Audit</strong> — independent WCAG testing by Aaron Siebold.
-  <a href="mailto:theaccessauditor@gmail.com">theaccessauditor@gmail.com</a></p>
-  <p>Replies within one business day. <a href="privacy.html">Privacy</a></p>
-  <!-- NO POSTAL ADDRESS YET — deliberate, not an oversight.
-       A website does not require one. CAN-SPAM requires a physical postal
-       address in the footer of COLD EMAIL (docs/LEGITIMACY.md §4), so it must
-       be added here and in the email template BEFORE the first cold email
-       goes out. LinkedIn DMs and phone outreach are unaffected. A UPS Store
-       mailbox or registered-agent address is normal and compliant if Aaron
-       would rather not publish a home address. -->
-</footer>
 
 </main>
-<div class="sticky-cta"><span>Audits from $495</span><a class="btn" href="#pricing">See pricing</a></div>
+
+<footer class="site-foot">
+  <div class="shell">
+    <p>Technical WCAG 2.1 AA assessments. Not legal advice, certification, or a litigation guarantee.</p>
+    <p><strong>The Access Audit</strong> — independent WCAG testing by Aaron Siebold.
+    <a href="mailto:theaccessauditor@gmail.com">theaccessauditor@gmail.com</a></p>
+    <p>Replies within one business day. <a href="privacy.html">Privacy</a></p>
+    <!-- NO POSTAL ADDRESS YET — deliberate, not an oversight.
+         A website does not require one. CAN-SPAM requires a physical postal
+         address in the footer of COLD EMAIL (docs/LEGITIMACY.md §4), so it must
+         be added here and in the email template BEFORE the first cold email
+         goes out. LinkedIn DMs and phone outreach are unaffected. A UPS Store
+         mailbox or registered-agent address is normal and compliant if Aaron
+         would rather not publish a home address. -->
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <span>Scans from $149</span>
+  <a class="btn" href="#pricing">See pricing</a>
+</div>
+
 </body>
 </html>

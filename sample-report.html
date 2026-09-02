@@ -184,11 +184,21 @@ handed directly to your developer.</div>
 <div class="callout">Every page was also tested with IBM's Equal Access engine — a second,
 independently developed accessibility checker. Running two engines catches issues either one
 alone would miss and confirms the findings above aren't one tool's opinion. The IBM engine
-flagged <strong>108</strong> failures across
-3 pages; items unique to it are listed
-here for review (rule taxonomies differ between engines, so counts are reported separately,
-never merged).</div>
+flagged <strong>108</strong> violations across
+3 pages, listed here for review.
+<strong>This number is not comparable to the total above.</strong> It is produced by IBM's
+<code>IBM_Accessibility</code> ruleset, which covers WCAG 2.1 A/AA <em>plus IBM's own
+additional requirements</em>, and its rule taxonomy differs from axe-core's — so the two
+counts measure different things and are never merged. The severity-ranked findings above
+remain the WCAG 2.1 A/AA result this audit is scoped to.</div>
 <table><tr><th>IBM rule</th><th>Count</th><th>Description</th></tr><tr><td><code>aria_content_in_landmark</code></td><td>52</td><td>Content is not within a landmark element</td></tr><tr><td><code>aria_landmark_name_unique</code></td><td>13</td><td>Multiple elements with &quot;navigation&quot; landmarks within the same parent region are not distinguished from one another because they have the same &quot;&quot; label</td></tr><tr><td><code>aria_navigation_label_unique</code></td><td>11</td><td>Multiple elements with &quot;navigation&quot; role do not have unique labels</td></tr><tr><td><code>a_text_purpose</code></td><td>8</td><td>Hyperlink has no link text, label or image with a text alternative</td></tr><tr><td><code>input_checkboxes_grouped</code></td><td>5</td><td>Radio input and others with the name &quot;route-type&quot; are not grouped together</td></tr><tr><td><code>img_alt_valid</code></td><td>4</td><td>The image has neither an accessible name nor is marked as decorative or redundant</td></tr><tr><td><code>aria_form_label_unique</code></td><td>3</td><td>Multiple elements with &quot;form&quot; role do not have unique labels</td></tr><tr><td><code>input_label_exists</code></td><td>3</td><td>Form control element &lt;button&gt; has no associated label</td></tr><tr><td><code>aria_hidden_nontabbable</code></td><td>2</td><td>Element &quot;iframe&quot; should not be focusable within the subtree of an element with an 'aria-hidden' attribute with value 'true'</td></tr><tr><td><code>target_spacing_sufficient</code></td><td>2</td><td>Undersized target &quot;a&quot; does not have sufficient spacing of 12 CSS pixels from another target &quot;a&quot;</td></tr><tr><td><code>table_headers_exists</code></td><td>2</td><td>Table has no headers identified</td></tr><tr><td><code>html_lang_exists</code></td><td>1</td><td>Page detected as HTML, but does not have a 'lang' attribute</td></tr><tr><td><code>fieldset_label_valid</code></td><td>1</td><td>Group/Fieldset does not have an accessible name</td></tr><tr><td><code>frame_title_exists</code></td><td>1</td><td>Inline frame does not have a 'title' attribute</td></tr></table>
+<h2>Where a finding actually lives</h2>
+<div class="callout warn">Some findings originate in your website platform's own components
+or in a third-party embed (a page builder's gallery control, a booking widget, a payment
+iframe) rather than in markup you control. They are real barriers for your users and they
+belong in this report, but the fix is raised with that vendor rather than made in your site.
+Where a finding sits in a component you cannot edit, it is flagged in the walkthrough and
+is <strong>never included in a remediation quote as though it were yours to fix</strong>.</div>
 <h2>What automated scanning cannot check</h2>
 <div class="callout">Automated engines reliably detect roughly half of WCAG issues. Full
 conformance also depends on the checks below, which require a human reviewer — they are
@@ -200,7 +210,8 @@ flagged here so this report never overstates what a scan alone proves.</div>
   <tr><td>Focus visibility &amp; order</td><td>A visible focus indicator following a logical sequence (WCAG 2.4.3, 2.4.7)</td></tr>
   <tr><td>Alt-text quality</td><td>A scan verifies alt text exists — a human verifies it is meaningful (WCAG 1.1.1)</td></tr>
   <tr><td>Media captions &amp; transcripts</td><td>Accuracy of captions on video/audio content (WCAG 1.2.x)</td></tr>
-  <tr><td>Motion, zoom &amp; reflow</td><td>Content usable at 200% zoom and 320px width without loss (WCAG 1.4.4, 1.4.10)</td></tr>
+  <tr><td>Zoom &amp; reflow</td><td>Content usable at 200% zoom and 320 CSS px width without loss of content or functionality (WCAG 1.4.4 Resize Text, 1.4.10 Reflow)</td></tr>
+  <tr><td>Motion &amp; auto-playing content</td><td>Anything that moves, blinks or scrolls for more than five seconds can be paused, stopped or hidden (WCAG 2.2.2)</td></tr>
 </table>
 <footer>
 <p><strong>Scope &amp; honesty note:</strong> this is an automated conformance scan using axe-core,

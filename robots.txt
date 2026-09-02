@@ -1,3 +1,35 @@
+# NOTE, verified 2026-09-02: on GitHub Pages PROJECT hosting this file lives at
+# /theaccessaudit/robots.txt, and crawlers only ever read robots.txt from the
+# ORIGIN root (RFC 9309). https://aaronsiebold.github.io/robots.txt is a 404,
+# so nothing below is currently being read by anybody. It is correct and ready
+# for the move to theaccessaudit.com, which is the only thing that makes it
+# take effect. Same applies to llms.txt and /.well-known/.
+
 User-agent: *
 Allow: /
+
+# AI answer engines, named explicitly. We WANT to be quoted: an accessibility
+# audit is exactly the kind of thing people ask an assistant about, and being
+# uncitable is an acquisition problem, not a privacy win.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://aaronsiebold.github.io/theaccessaudit/sitemap.xml
