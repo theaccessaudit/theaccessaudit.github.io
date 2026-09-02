@@ -149,7 +149,34 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 /* ── Hero ─────────────────────────────────────────────────────────── */
 .hero { padding-block: clamp(var(--s7), 7vw, var(--s9)) var(--s8); }
 .hero h1 { max-width: 20ch; }
-.cta-row { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s6); }
+.hero-link { margin-top: var(--s6); }
+/* An editorial link, not a default browser blue one: ink-coloured with a
+   hairline rule under it that firms up on hover. */
+.hero-link a:not(.btn) {
+  color: var(--ink); font-weight: 600; text-decoration: none;
+  border-bottom: 1px solid var(--rule-firm); padding-bottom: 2px;
+  transition: border-color .15s ease, color .15s ease;
+}
+.hero-link a:not(.btn):hover { color: var(--accent); border-bottom-color: var(--accent); }
+.hero-link .btn { text-decoration: none; }
+@media (prefers-reduced-motion: reduce) { .hero-link a:not(.btn) { transition: none; } }
+
+/* The masthead-rule-headline-ledger stack, the same composition as the share card. */
+.ledger {
+  margin: var(--s8) 0 0;
+  border-top: 1px solid var(--rule-firm);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.ledger > div { padding: var(--s5) var(--s5) 0 0; border-right: 1px solid var(--rule); }
+.ledger > div + div { padding-left: var(--s5); }
+.ledger > div:last-child { border-right: 0; padding-right: 0; }
+.ledger dt {
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: var(--step-2); font-weight: 600; letter-spacing: -.02em; line-height: 1.05;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.ledger dd { margin: var(--s3) 0 0; color: var(--ink-2); font-size: var(--step--1); line-height: 1.5; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -308,19 +335,13 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 .site-foot p + p { margin-top: var(--s3); }
 .site-foot strong { color: var(--ink); }
 
-.sticky-cta { display: none; }
 @media (max-width: 46rem) {
-  body { padding-bottom: 4.25rem; }
-  .cta-row .btn { flex: 1 1 100%; }
   .evidence div { grid-template-columns: 1fr; gap: var(--s1); }
-  .sticky-cta {
-    display: flex; position: fixed; inset: auto 0 0 0; z-index: 10;
-    align-items: center; justify-content: space-between; gap: var(--s4);
-    background: var(--surface); border-top: 1px solid var(--rule-firm);
-    padding: var(--s3) var(--s5);
+  .ledger { grid-template-columns: 1fr; }
+  .ledger > div, .ledger > div + div {
+    padding: var(--s4) 0; border-right: 0; border-bottom: 1px solid var(--rule);
   }
-  .sticky-cta span { color: var(--ink-2); font-size: var(--step--1); }
-  .sticky-cta .btn { flex: none; padding-inline: var(--s5); }
+  .ledger > div:last-child { border-bottom: 0; }
   /* Below this width the plan columns no longer fit, so say so. */
   .scroll-hint { display: block; }
 }
@@ -458,7 +479,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
       "name": "Max",
       "price": "3900",
       "priceCurrency": "USD",
-      "description": "For large catalogues. Everything in Conformance across the whole origin, plus screen-reader review of the full cart and checkout flow and quarterly re-scans for 12 months. Includes the first 250 pages. 10-15 business days.",
+      "description": "For large catalogues. Everything in Conformance across the whole origin, plus screen-reader review of the full cart and checkout flow and quarterly re-scans for 12 months. Includes the first 250 pages; additional pages are $0.35 each, capped at $900. 10-15 business days.",
       "availability": "https://schema.org/InStock",
       "url": "https://aaronsiebold.github.io/theaccessaudit/#pricing",
       "itemOffered": {
@@ -495,7 +516,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
      "name": "My site only has about a dozen pages. Am I paying for capacity I do not need?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. Every plan covers your whole site up to 100 pages at the listed price, so a 9-page restaurant site and a 40-page clinic site pay the same $149 for a Scan and get every page tested, keyboard walk included. There is no tier you have to round up into, and no plan that leaves part of your site unscanned. If you run a small local business, the $149 Scan is very often the right and only thing to buy — we will tell you so."
+      "text": "No. Every plan covers your whole site up to 100 pages at the listed price, so a 9-page restaurant site and a 40-page clinic site pay the same $149 for a Scan and get every page tested, keyboard walk included. There is no tier you have to round up into, and no plan that leaves part of your site unscanned. If you run a small local business, the $149 Scan is very often the right and only thing to buy, and we will tell you so."
      }
     },
     {
@@ -560,13 +581,24 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 <section class="hero">
   <div class="shell">
     <h1>Most websites have accessibility problems the owner was never told about.</h1>
-    <p class="lede">We test every page of your site against WCAG 2.1 AA, the standard courts and
-    regulators reference, and hand you a plain, severity-ranked list of what to fix. You will know
-    exactly where you stand, whether or not you do anything about it.</p>
-    <div class="cta-row">
-      <a class="btn" href="#pricing">See pricing</a>
-      <a class="btn ghost" href="sample-report.html">Read a real report</a>
-    </div>
+    <p class="lede">Every page scanned by two rule engines and walked with a keyboard, then
+    ranked critical to minor with the fix for each one.</p>
+    <p class="hero-link"><a href="sample-report.html">Read a real report</a></p>
+
+    <dl class="ledger">
+      <div>
+        <dt>From $149</dt>
+        <dd>Whole-site scan, every page</dd>
+      </div>
+      <div>
+        <dt>$125/hr</dt>
+        <dd>Remediation, quoted from findings</dd>
+      </div>
+      <div>
+        <dt>$149/mo</dt>
+        <dd>Monitoring, re-scan and alert</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -805,7 +837,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
       <p>What is left is genuinely a person&rsquo;s time, and that is what the higher tiers buy:
       listening to the site with a screen reader, deciding whether an announced name makes sense,
       writing a VPAT, sitting on a call. <span class="effort">Longer and harder work, higher
-      price</span> &mdash; and nothing above the entry tier is sold to a business that does not
+      price</span>. Nothing above the entry tier is sold to a business that does not
       need it.</p>
     </div>
 
@@ -836,7 +868,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
       product and is worth what it costs; we are the faster, broader-coverage option, not a cheaper
       copy of it. Same WCAG 2.1 AA standard either way.</p>
       <p class="cite">The IRS Disabled Access Credit (<a href="https://www.irs.gov/forms-pubs/about-form-8826">Form 8826</a>)
-      may apply to accessibility work &mdash; worth asking your tax preparer about.</p>
+      may apply to accessibility work. Worth asking your tax preparer about.</p>
     </div>
   </div>
 </section>
@@ -847,14 +879,14 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
     <div class="honest">
       <p><strong>No scan makes you &ldquo;compliant,&rdquo; and neither does a widget.</strong>
       Automated tools catch roughly half of WCAG issues &mdash; that is axe-core&rsquo;s own
-      published figure for its own engine &mdash; which is why the Audit tier and above put a
+      published figure for its own engine. That is why the Audit tier and above put a
       person in front of a screen reader, and why every report we send lists exactly what a scan
       cannot check.</p>
       <p>Be careful with overlay widgets. Roughly a quarter of 2025 ADA web filings were against
       sites that already had one installed, and in April 2025 the Federal Trade Commission
       finalised an order requiring one overlay vendor to pay $1,000,000 over claims that its
       product could make any website compliant. That is one vendor&rsquo;s advertising, not a
-      verdict on every tool in the category &mdash; but it is a regulator on the record, and it is
+      verdict on every tool in the category. But it is a regulator on the record, and it is
       worth knowing before you buy a script tag that promises to solve this.</p>
       <p>We will never sell you a certification, a guarantee against lawsuits, or legal advice. We
       sell you an accurate technical picture and a fix list.</p>
@@ -879,7 +911,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
         restaurant site and a 40-page clinic site pay the same $149 for a Scan and get every page
         tested, keyboard walk included. There is no tier you have to round up into, and no plan
         that leaves part of your site unscanned. If you run a small local business, the $149 Scan
-        is very often the right and only thing to buy &mdash; we will tell you so.</p>
+        is very often the right and only thing to buy, and we will tell you so.</p>
       </details>
       <details>
         <summary>What do you need from me to start?</summary>
@@ -925,6 +957,15 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 
 </main>
 
+<section id="start">
+  <div class="shell">
+    <h2>Start with the report</h2>
+    <p class="lede">Send a URL and say which pages matter most. A Scan comes back in two business
+    days, and you will know where the site stands before anyone asks you for money to fix it.</p>
+    <p class="hero-link"><a class="btn" href="mailto:theaccessauditor@gmail.com?subject=Accessibility%20audit%20enquiry">Email theaccessauditor@gmail.com</a></p>
+  </div>
+</section>
+
 <footer class="site-foot">
   <div class="shell">
     <p>Technical WCAG 2.1 AA assessments. Not legal advice, certification, or a litigation guarantee.</p>
@@ -941,10 +982,6 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
   </div>
 </footer>
 
-<div class="sticky-cta">
-  <span>Scans from $149</span>
-  <a class="btn" href="#pricing">See pricing</a>
-</div>
 
 </body>
 </html>
