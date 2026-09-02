@@ -567,9 +567,8 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
-
 <header class="masthead">
+  <a class="skip" href="#main">Skip to content</a>
   <div class="shell">
     <a class="wordmark" href="#main">The Access Audit</a>
     <p>Independent WCAG 2.1 AA testing — Aaron Siebold</p>
@@ -648,7 +647,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
   </div>
 </section>
 
-<section id="how"><section id="how">
+<section id="how">
   <div class="shell">
     <h2>How it works</h2>
     <p class="lede">Four steps. You send a URL; you get a document your developer can work from.</p>
@@ -710,6 +709,13 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 
     <p class="scroll-hint">The plan columns scroll sideways on a narrow screen; the row
     labels stay put.</p>
+    <!-- IBM Equal Access flags this as element_tabbable_role_valid ("the tabbable
+         element's role 'region' is not a widget role"). LEAVE IT. tabindex="0" +
+         role="region" + an accessible name is the W3C/Deque pattern for a
+         horizontally scrollable container: without tabindex a keyboard-only
+         visitor cannot scroll this pricing table at all. Removing it would trade
+         a real keyboard regression for a clean lint score. Verified 2026-09-02:
+         it is the ONLY remaining IBM finding on this page, and it is deliberate. -->
     <div class="table-wrap" tabindex="0" role="region" aria-labelledby="pricing-h">
       <table>
         <caption>All prices in USD. Turnaround is in business days from the day we receive your URL.</caption>
@@ -955,8 +961,6 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
   </div>
 </section>
 
-</main>
-
 <section id="start">
   <div class="shell">
     <h2>Start with the report</h2>
@@ -965,6 +969,8 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
     <p class="hero-link"><a class="btn" href="mailto:theaccessauditor@gmail.com?subject=Accessibility%20audit%20enquiry">Email theaccessauditor@gmail.com</a></p>
   </div>
 </section>
+
+</main>
 
 <footer class="site-foot">
   <div class="shell">
