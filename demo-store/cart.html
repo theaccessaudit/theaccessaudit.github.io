@@ -1,0 +1,108 @@
+<!doctype html>
+<!-- DELIBERATE: no lang attribute. A screen reader falls back to the user's
+     own locale and reads English product names with the wrong pronunciation
+     rules. axe: html-has-lang (serious). -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cart — Northwind Ceramics</title>
+<meta name="description" content="Your cart at Northwind Ceramics.">
+<link rel="stylesheet" href="_store.css">
+</head>
+<body>
+
+<p class="demo-bar">Demonstration store. Northwind Ceramics is not a real business and nothing here
+is for sale. We built it broken on purpose, so that <a href="/">The Access Audit</a> has something
+to audit in public that is not somebody's real shop.</p>
+
+<header class="shop">
+  <div class="wrap">
+    <a class="brand" href="index.html">Northwind Ceramics</a>
+    <nav class="shop">
+      <a href="index.html">Shop</a>
+      <a href="mug.html">Mugs</a>
+      <a href="bowl.html">Bowls</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <div class="icons">
+      <button>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7">
+          <circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/>
+        </svg>
+      </button>
+      <button>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path d="M3 4h2l2 9h8l2-6H6"/><circle cx="9" cy="16" r="1.2"/><circle cx="15" cy="16" r="1.2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 style="margin-top:36px;font-size:28px">Your cart</h1>
+
+  <table class="cart">
+    <tr>
+      <th>Item</th><th>Size</th><th>Qty</th><th>Price</th><th></th>
+    </tr>
+    <tr>
+      <td>Ridge Mug, 10 oz</td>
+      <td>M</td>
+      <td>
+        <!-- DELIBERATE: another unlabelled select, this time in the checkout
+             path, which is where it costs an actual sale. -->
+        <select><option>1</option><option>2</option></select>
+      </td>
+      <td>$34</td>
+      <td>
+        <!-- DELIBERATE: icon-only remove control. A keyboard visitor reaches a
+             button that announces nothing and deletes a line item. -->
+        <button class="rm">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M4 4l8 8M12 4l-8 8"/>
+          </svg>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>Fold Bowl, wide</td>
+      <td>L</td>
+      <td><select><option>1</option><option>2</option></select></td>
+      <td>$52</td>
+      <td>
+        <button class="rm">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M4 4l8 8M12 4l-8 8"/>
+          </svg>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <p style="color:var(--ink-soft)">Subtotal <strong style="color:var(--ink)">$86</strong> — shipping
+  calculated at checkout.</p>
+
+  <!-- DELIBERATE: checkout, the single most important control on the site, is a
+       div. Nothing reaches it without a mouse. -->
+  <div class="addcart" onclick="void 0" style="margin-bottom:56px">Checkout</div>
+</main>
+
+<footer class="shop">
+  <div class="wrap">
+    <p>Northwind Ceramics, Ojai CA. Studio visits by appointment.</p>
+    <div class="row">
+      <a href="#">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="2" y="2" width="14" height="14" rx="4"/><circle cx="9" cy="9" r="3.2"/>
+        </svg>
+      </a>
+      <a href="index.html">Continue shopping</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

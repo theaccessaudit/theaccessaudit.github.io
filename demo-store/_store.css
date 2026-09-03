@@ -1,0 +1,82 @@
+/* Northwind Ceramics — demo store theme.
+   Deliberately ordinary: this is what a small shop's theme looks like, and the
+   sample report is more useful to a boutique owner when the subject resembles
+   their own site. See _shared-notes.md before changing anything. */
+:root{
+  --clay:#a8563a; --clay-dark:#8a432c;
+  --sage:#6b7a63; --cream:#faf7f2; --card:#fff;
+  --ink:#2c2a27; --ink-soft:#5f5b55; --line:#e6e0d6;
+  --sale:#f3a26d;               /* DELIBERATE: 2.0:1 on white, fails 1.4.3 */
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--cream);color:var(--ink);
+  font:16px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif}
+img{max-width:100%;display:block}
+a{color:var(--clay)}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.2}
+
+/* DELIBERATE: kills the focus ring everywhere and replaces it with nothing.
+   Copied verbatim from the kind of theme tweak people paste in to "clean up"
+   a design. Our keyboard walk reports it as WCAG 2.4.7. */
+*:focus{outline:none}
+
+.demo-bar{background:var(--ink);color:#fff;font-size:13px;padding:8px 16px;text-align:center}
+.demo-bar a{color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.shop{border-bottom:1px solid var(--line);background:var(--card)}
+header.shop .wrap{display:flex;align-items:center;gap:28px;padding-block:18px}
+.brand{font-family:Georgia,serif;font-size:22px;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+nav.shop{display:flex;gap:22px;margin-right:auto}
+nav.shop a{color:var(--ink-soft);text-decoration:none;font-size:15px}
+nav.shop a:hover{color:var(--clay)}
+.icons{display:flex;gap:10px}
+.icons button{background:none;border:0;padding:6px;cursor:pointer;color:var(--ink)}
+.hero{padding:56px 0 40px}
+.hero h1{font-size:38px;max-width:22ch}
+.hero p{color:var(--ink-soft);margin-top:14px;max-width:52ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:28px;padding-bottom:56px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.card .ph{aspect-ratio:4/3;background:linear-gradient(140deg,#ded5c8,#c9bcab)}
+.card .body{padding:14px 16px 18px}
+/* The badge gets a reserved row in every card, present or not, so one product
+   having a SALE flag does not push its title below its neighbours'. The faults
+   in this fixture are deliberate and documented; a ragged baseline is neither. */
+.card .badge-row{height:24px;display:flex;align-items:center;margin-bottom:6px}
+.card h3{font-size:17px}
+.card h3 a{color:var(--ink);text-decoration:none}
+.card h3 a:hover{color:var(--clay)}
+.card .price{margin-top:6px;color:var(--ink-soft);font-size:15px}
+.badge{display:inline-block;vertical-align:top;background:#fff;color:var(--sale);border:1px solid var(--sale);
+  border-radius:3px;padding:2px 8px;font-size:12px;line-height:1.5;font-weight:700;letter-spacing:.06em}
+.pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;padding:44px 0 60px}
+.pdp .ph{aspect-ratio:1;background:linear-gradient(140deg,#ded5c8,#c9bcab);border-radius:6px}
+.pdp h1{font-size:30px}
+.pdp .price{font-size:21px;margin-top:10px}
+.pdp p.desc{color:var(--ink-soft);margin-top:18px}
+.opt{margin-top:26px}
+.opt .lbl{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.swatches{display:flex;gap:10px;margin-top:10px}
+/* DELIBERATE: variant pickers built from divs. Looks and clicks fine with a
+   mouse; the Tab key never reaches them. This is the single most common
+   keyboard failure in a themed store. */
+.sw{width:44px;height:44px;border:1px solid var(--line);border-radius:4px;cursor:pointer;
+  display:grid;place-items:center;font-size:14px;background:var(--card)}
+.sw.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+select{margin-top:10px;padding:9px 12px;border:1px solid var(--line);border-radius:4px;
+  background:var(--card);font:inherit;min-width:90px}
+/* DELIBERATE: the primary action is a div. */
+.addcart{margin-top:26px;background:var(--clay);color:#fff;border-radius:4px;padding:14px 26px;
+  text-align:center;font-weight:600;cursor:pointer;max-width:280px}
+.addcart:hover{background:var(--clay-dark)}
+table.cart{width:100%;border-collapse:collapse;margin:28px 0}
+table.cart th,table.cart td{text-align:left;padding:14px 10px;border-bottom:1px solid var(--line)}
+table.cart th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.rm{background:none;border:0;cursor:pointer;color:var(--ink-soft);padding:4px}
+.newsletter{border-top:1px solid var(--line);padding:40px 0;background:var(--card)}
+.newsletter form{display:flex;gap:10px;margin-top:14px;max-width:440px}
+.newsletter input{flex:1;padding:11px 13px;border:1px solid var(--line);border-radius:4px;font:inherit}
+.newsletter button{background:var(--sage);color:#fff;border:0;border-radius:4px;padding:11px 20px;font:inherit;cursor:pointer}
+footer.shop{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--ink-soft);font-size:14px}
+footer.shop .row{display:flex;gap:18px;align-items:center;margin-top:14px}
+footer.shop .row a{color:var(--ink-soft)}
+@media(max-width:760px){.pdp{grid-template-columns:1fr;gap:26px}nav.shop{display:none}}

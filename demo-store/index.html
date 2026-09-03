@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Northwind Ceramics — handmade stoneware</title>
+<meta name="description" content="Small-batch stoneware, thrown and glazed by hand in Ojai, California.">
+<link rel="stylesheet" href="_store.css">
+</head>
+<body>
+
+<p class="demo-bar">Demonstration store. Northwind Ceramics is not a real business and nothing here
+is for sale. We built it broken on purpose, so that <a href="/">The Access Audit</a> has something
+to audit in public that is not somebody's real shop.</p>
+
+<header class="shop">
+  <div class="wrap">
+    <a class="brand" href="index.html">Northwind Ceramics</a>
+    <nav class="shop">
+      <a href="index.html">Shop</a>
+      <a href="mug.html">Mugs</a>
+      <a href="bowl.html">Bowls</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <div class="icons">
+      <!-- DELIBERATE: icon-only buttons with no accessible name. A screen
+           reader announces "button", and so does anything else reading the
+           page. axe: button-name (critical). -->
+      <button>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7">
+          <circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/>
+        </svg>
+      </button>
+      <button>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path d="M3 4h2l2 9h8l2-6H6"/><circle cx="9" cy="16" r="1.2"/><circle cx="15" cy="16" r="1.2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Stoneware for the table you actually eat at</h1>
+      <p>Thrown, trimmed and glazed by hand in small runs. Every piece is a little different, which
+      is the point.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="grid">
+      <article class="card">
+        <!-- DELIBERATE: no alt attribute at all. axe: image-alt (critical). -->
+        <img class="ph" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%203'%3E%3Crect%20width='4'%20height='3'%20fill='%23ded5c8'/%3E%3C/svg%3E">
+        <div class="body">
+          <div class="badge-row"><span class="badge">SALE</span></div>
+          <h3><a href="mug.html">Ridge Mug, 10 oz</a></h3>
+          <p class="price">$34</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <!-- DELIBERATE: alt text that is a filename. Passes every automated
+             scanner on the market, ours included, and still fails 1.1.1 —
+             this is the slice a human reviewer is for. -->
+        <img class="ph" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%203'%3E%3Crect%20width='4'%20height='3'%20fill='%23d6cabb'/%3E%3C/svg%3E" alt="IMG_4821.jpg">
+        <div class="body">
+          <div class="badge-row"></div>
+          <h3><a href="bowl.html">Fold Bowl, wide</a></h3>
+          <p class="price">$52</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="ph" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%203'%3E%3Crect%20width='4'%20height='3'%20fill='%23cdbfae'/%3E%3C/svg%3E" alt="A shallow serving dish in a matte oatmeal glaze, photographed from above.">
+        <div class="body">
+          <div class="badge-row"></div>
+          <h3><a href="bowl.html">Coast Serving Dish</a></h3>
+          <p class="price">$68</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="ph" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%203'%3E%3Crect%20width='4'%20height='3'%20fill='%23c6b8a6'/%3E%3C/svg%3E" alt="A tall carafe with a narrow neck in a speckled grey glaze.">
+        <div class="body">
+          <div class="badge-row"></div>
+          <h3><a href="mug.html">Field Carafe, 1 L</a></h3>
+          <p class="price">$74</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <section class="newsletter">
+    <div class="wrap">
+      <h2 style="font-size:20px">Kiln notes</h2>
+      <p style="color:var(--ink-soft);margin-top:6px">New runs, seconds sales, and studio days. About
+      one email a month.</p>
+      <!-- DELIBERATE: a placeholder is not a label. axe: label (critical). -->
+      <form onsubmit="return false">
+        <input type="email" placeholder="Email address">
+        <button>Sign up</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="shop">
+  <div class="wrap">
+    <p>Northwind Ceramics, Ojai CA. Studio visits by appointment.</p>
+    <div class="row">
+      <!-- DELIBERATE: icon-only links with no accessible name.
+           axe: link-name (serious). -->
+      <a href="#">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="2" y="2" width="14" height="14" rx="4"/><circle cx="9" cy="9" r="3.2"/>
+        </svg>
+      </a>
+      <a href="#">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M11 6h2V3h-2a3 3 0 0 0-3 3v2H6v3h2v6h3v-6h2l1-3h-3V6.7c0-.4.3-.7.7-.7Z"/>
+        </svg>
+      </a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
