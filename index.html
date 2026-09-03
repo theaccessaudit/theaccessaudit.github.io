@@ -662,7 +662,10 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
           <h3>Scan</h3>
           <p>We crawl your site and test every page against WCAG 2.1 Level A and AA with two
           independent engines: axe-core, the engine inside Google Lighthouse, cross-checked
-          against IBM Equal Access. Two rule sets catch what either one alone would miss.</p>
+          against IBM Equal Access. Two rule sets catch what either one alone would miss. The same crawl
+          also records what a machine can read from each page: structured data, page titles, and
+          the rules your site sets for automated crawlers. Those go in the report as notes, not as
+          WCAG findings, because several of them are the same fix.</p>
         </div>
       </li>
       <li>
@@ -766,6 +769,13 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
           </tr>
           <tr>
             <th scope="row">Keyboard, focus and trap audit</th>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+            <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Machine-readability notes</th>
             <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
             <td class="pick"><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
             <td><span class="yes"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true" focusable="false"><path d="M2.5 8 6 11.5 12.5 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included</span></span></td>
