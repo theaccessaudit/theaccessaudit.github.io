@@ -7,9 +7,6 @@
 <title>The Access Audit — WCAG 2.1 AA website accessibility audits</title>
 <meta name="description" content="WCAG 2.1 AA accessibility audits for small businesses and e-commerce. Every page scanned and keyboard-tested, severity-ranked, with fix guidance your developer can act on today. From $149.">
 <link rel="canonical" href="https://theaccessaudit.github.io/">
-<!-- Absolute URLs required by scrapers. Live host is GitHub Pages; update
-     these (and sitemap.xml + robots.txt + llms.txt) if the site moves to
-     theaccessaudit.com after first revenue. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Access Audit">
 <meta property="og:title" content="The Access Audit — WCAG 2.1 AA website accessibility audits">
@@ -19,6 +16,7 @@
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
 <meta name="twitter:card" content="summary_large_image">
+<!-- Why this file is built the way it is: docs/SITE_NOTES.md (not shipped). -->
 <style>
 /* Newsreader — SIL Open Font License 1.1. Latin subset, optical size pinned.
    See fonts/LICENSE-Newsreader.txt. Display face only; body stays on the
@@ -149,7 +147,7 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 /* ── Hero ─────────────────────────────────────────────────────────── */
 .hero { padding-block: clamp(var(--s7), 7vw, var(--s9)) var(--s8); }
 .hero h1 { max-width: 20ch; }
-.hero-link { margin-top: var(--s6); }
+.hero-link { margin-top: var(--s6); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4) var(--s5); }
 /* An editorial link, not a default browser blue one: ink-coloured with a
    hairline rule under it that firms up on hover. */
 .hero-link a:not(.btn) {
@@ -243,7 +241,7 @@ table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 46
 caption { text-align: left; padding: var(--s4) var(--s5); color: var(--ink-2); font-size: var(--step--1); border-bottom: 1px solid var(--rule); }
 .scroll-hint { display: none; color: var(--ink-2); font-size: var(--step--1); margin-top: var(--s5); }
 th, td { text-align: left; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--rule); vertical-align: top; font-size: var(--step--1); }
-thead th { vertical-align: bottom; border-bottom: 1px solid var(--rule-firm); }
+thead th { vertical-align: top; border-bottom: 1px solid var(--rule-firm); }
 tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
 /* The row header stays put while the plan columns scroll, so a narrow screen
    never shows a column of ticks with nothing to attach them to. */
@@ -264,13 +262,16 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 }
 .tier-for { display: block; margin-top: var(--s2); color: var(--ink-2); font-weight: 400; font-size: var(--step--1); white-space: normal; max-width: 15rem; }
 .pick { background: var(--sunk); }
-.pick .tier-name::after {
-  content: "Most bought";
-  display: block; margin-bottom: var(--s2);
+/* The badge gets its own reserved row in EVERY column, not just the one that
+   shows it. Rendering it inside .tier-name pushed that column's price down and
+   left the four prices on four different baselines. */
+.badge {
+  display: block; min-height: 1.05rem; margin-bottom: var(--s2);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent); line-height: 1.05rem;
 }
+.pick .badge::after { content: "Most bought" }
 .yes, .no { display: inline-flex; align-items: center; gap: var(--s2); }
 .yes svg, .no svg { flex: none; }
 .yes { color: var(--ok); }
@@ -582,7 +583,8 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
     <h1>Most websites have accessibility problems the owner was never told about.</h1>
     <p class="lede">Every page scanned by two rule engines and walked with a keyboard, then
     ranked critical to minor with the fix for each one.</p>
-    <p class="hero-link"><a href="sample-report.html">Read a real report</a></p>
+    <p class="hero-link"><a class="btn" href="mailto:theaccessauditor@gmail.com?subject=Accessibility%20audit%20enquiry">Send a URL, get a quote</a>
+    <a href="sample-report.html">Read a real report</a></p>
 
     <dl class="ledger">
       <div>
@@ -709,13 +711,6 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 
     <p class="scroll-hint">The plan columns scroll sideways on a narrow screen; the row
     labels stay put.</p>
-    <!-- IBM Equal Access flags this as element_tabbable_role_valid ("the tabbable
-         element's role 'region' is not a widget role"). LEAVE IT. tabindex="0" +
-         role="region" + an accessible name is the W3C/Deque pattern for a
-         horizontally scrollable container: without tabindex a keyboard-only
-         visitor cannot scroll this pricing table at all. Removing it would trade
-         a real keyboard regression for a clean lint score. Verified 2026-09-02:
-         it is the ONLY remaining IBM finding on this page, and it is deliberate. -->
     <div class="table-wrap" tabindex="0" role="region" aria-labelledby="pricing-h">
       <table>
         <caption>All prices in USD. Turnaround is in business days from the day we receive your URL.</caption>
@@ -723,21 +718,25 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
           <tr>
             <td></td>
             <th scope="col">
+              <span class="badge"></span>
               <span class="tier-name">Scan</span>
               <span class="tier-price">$149</span>
               <span class="tier-for">Local and service sites. Everything a machine can test, nothing you have to book.</span>
             </th>
             <th scope="col" class="pick">
+              <span class="badge"></span>
               <span class="tier-name">Audit</span>
               <span class="tier-price">$795</span>
               <span class="tier-for">Small e-commerce, clinics, anyone who has had a letter.</span>
             </th>
             <th scope="col">
+              <span class="badge"></span>
               <span class="tier-name">Conformance</span>
               <span class="tier-price">$2,250</span>
               <span class="tier-for">Procurement, grants and enterprise vendor review.</span>
             </th>
             <th scope="col">
+              <span class="badge"></span>
               <span class="tier-name">Max</span>
               <span class="tier-price">from $3,900</span>
               <span class="tier-for">Large catalogues where checkout is the exposure.</span>
@@ -978,13 +977,6 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
     <p><strong>The Access Audit</strong> — independent WCAG testing by Aaron Siebold.
     <a href="mailto:theaccessauditor@gmail.com">theaccessauditor@gmail.com</a></p>
     <p>Replies within one business day. <a href="privacy.html">Privacy</a></p>
-    <!-- NO POSTAL ADDRESS YET — deliberate, not an oversight.
-         A website does not require one. CAN-SPAM requires a physical postal
-         address in the footer of COLD EMAIL (docs/LEGITIMACY.md §4), so it must
-         be added here and in the email template BEFORE the first cold email
-         goes out. LinkedIn DMs and phone outreach are unaffected. A UPS Store
-         mailbox or registered-agent address is normal and compliant if Aaron
-         would rather not publish a home address. -->
   </div>
 </footer>
 
