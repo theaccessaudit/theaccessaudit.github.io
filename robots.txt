@@ -1,9 +1,15 @@
-# NOTE, verified 2026-09-02: on GitHub Pages PROJECT hosting this file lives at
-# /theaccessaudit/robots.txt, and crawlers only ever read robots.txt from the
-# ORIGIN root (RFC 9309). https://aaronsiebold.github.io/robots.txt is a 404,
-# so nothing below is currently being read by anybody. It is correct and ready
-# for the move to theaccessaudit.com, which is the only thing that makes it
-# take effect. Same applies to llms.txt and /.well-known/.
+# NOTE, updated 2026-09-03: this file is now LIVE and read.
+#
+# It used to sit at /theaccessaudit/robots.txt under GitHub Pages PROJECT
+# hosting, and crawlers only ever read robots.txt from the ORIGIN root
+# (RFC 9309), so nothing below was reaching anybody. Moving the repo to the
+# `theaccessaudit` org and naming it theaccessaudit.github.io makes this an
+# ORGANISATION site served from the origin root, so
+# https://theaccessaudit.github.io/robots.txt now resolves and the rules below
+# take effect. Same for llms.txt and /.well-known/.
+#
+# That was a side benefit of the move, not its purpose: the move was to get
+# Aaron's personal name out of the URL prospects see.
 
 User-agent: *
 Allow: /
@@ -32,4 +38,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://aaronsiebold.github.io/theaccessaudit/sitemap.xml
+Sitemap: https://theaccessaudit.github.io/sitemap.xml

@@ -18,17 +18,17 @@ keyboard. The tier determines how much human review comes with that, never how
 much of the site is covered. The listed price covers sites up to 100 pages;
 larger sites add $0.35 per additional page, capped at $900.
 
-- [Scan — $149](https://aaronsiebold.github.io/theaccessaudit/#pricing): every page against WCAG 2.1 Level A/AA with two independent engines (axe-core cross-checked against IBM Equal Access), plus a keyboard audit covering reachability, focus order, keyboard traps and focus visibility. Severity-ranked HTML + PDF report with element-level fix guidance. 2 business days.
-- [Audit — $795](https://aaronsiebold.github.io/theaccessaudit/#pricing): everything in Scan, plus screen-reader review of key templates by a person, image-description quality review, and a prioritized remediation roadmap with effort estimates. 4 business days.
-- [Conformance — $2,250](https://aaronsiebold.github.io/theaccessaudit/#pricing): everything in Audit with screen-reader review of every template, plus VPAT 2.5Rev / ACR preparation for procurement, one post-remediation re-scan with a before-and-after delta, and a findings walkthrough call. 7–10 business days.
-- [Max — from $3,900](https://aaronsiebold.github.io/theaccessaudit/#pricing): for large catalogues. Everything in Conformance across the whole origin, plus screen-reader review of the full cart and checkout flow at three viewport widths and quarterly re-scans for 12 months. Includes the first 250 pages.
+- [Scan — $149](https://theaccessaudit.github.io/#pricing): every page against WCAG 2.1 Level A/AA with two independent engines (axe-core cross-checked against IBM Equal Access), plus a keyboard audit covering reachability, focus order, keyboard traps and focus visibility. Severity-ranked HTML + PDF report with element-level fix guidance. 2 business days.
+- [Audit — $795](https://theaccessaudit.github.io/#pricing): everything in Scan, plus screen-reader review of key templates by a person, image-description quality review, and a prioritized remediation roadmap with effort estimates. 4 business days.
+- [Conformance — $2,250](https://theaccessaudit.github.io/#pricing): everything in Audit with screen-reader review of every template, plus VPAT 2.5Rev / ACR preparation for procurement, one post-remediation re-scan with a before-and-after delta, and a findings walkthrough call. 7–10 business days.
+- [Max — from $3,900](https://theaccessaudit.github.io/#pricing): for large catalogues. Everything in Conformance across the whole origin, plus screen-reader review of the full cart and checkout flow at three viewport widths and quarterly re-scans for 12 months. Includes the first 250 pages.
 - Remediation is quoted after the audit from the actual findings ($125/hr or a fixed package). Ongoing monitoring, a monthly re-scan with a diff and an alert, is $149/mo.
 
 ## Pages
 
-- [Home](https://aaronsiebold.github.io/theaccessaudit/): the offer, pricing, and the limits of automated testing stated plainly.
-- [Sample report](https://aaronsiebold.github.io/theaccessaudit/sample-report.html): a real report from the pipeline, run against Deque's intentionally broken demo site.
-- [Privacy](https://aaronsiebold.github.io/theaccessaudit/privacy.html)
+- [Home](https://theaccessaudit.github.io/): the offer, pricing, and the limits of automated testing stated plainly.
+- [Sample report](https://theaccessaudit.github.io/sample-report.html): a real report from the pipeline, run against Deque's intentionally broken demo site.
+- [Privacy](https://theaccessaudit.github.io/privacy.html)
 
 ## What we will not claim
 
