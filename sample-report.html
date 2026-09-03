@@ -169,6 +169,15 @@
   .affected code { margin-right:var(--s3) }
   .fnote { color:var(--ink-3) }
   .compact summary { padding:var(--s4) 0 }
+  .findex td { vertical-align:middle }
+  .findex .sev { display:inline; margin:0 }
+  .findex .idx { font-family:var(--serif); font-size:var(--step-0); color:var(--ink-3); text-align:left }
+  .findex a { color:var(--ink); text-decoration:none; font-weight:600 }
+  .findex a:hover { color:var(--accent); text-decoration:underline }
+  @media (max-width:34rem) {
+    .findex thead th:nth-child(4), .findex thead th:nth-child(5),
+    .findex td:nth-child(4), .findex td:nth-child(5) { display:none }
+  }
   code { font-family:var(--mono); font-size:.85em; color:var(--ink); overflow-wrap:anywhere }
   pre {
     background:var(--sunk); border:1px solid var(--rule); border-radius:10px;
@@ -268,11 +277,12 @@ engines: axe-core and IBM Equal Access</p>
 </nav>
 
 <h2 id="findings">Findings</h2>
+
 <div class="note">Grouped by rule and ordered by severity. Each entry names the pages it appears
 on, shows the exact elements involved, and links to the step-by-step fix for that rule — this
 section is written to be handed straight to whoever maintains the site.</div>
 
-  <details class="finding">
+  <details class="finding" id="f1">
     <summary>
       <span class="num">01</span>
       <span class="fhead">
@@ -324,13 +334,12 @@ section is written to be handed straight to whoever maintains the site.</div>
           &lt;path d=&quot;M3 4h2l2 9h8l2-6H6&quot;&gt;&lt;/path&gt;&lt;circle cx=&quot;9&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;&lt;circle cx=&quot;15&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;
         &lt;/svg&gt;
       &lt;/button&gt;</code></pre>
-      <p class="fnote">Showing 8 of 10 affected elements. The accompanying
-             JSON data file lists up to 25 per page for this rule.</p>
+      <p class="fnote">Showing 8 of 10 affected elements. The accompanying JSON data file lists up to 25 per page for this rule.</p>
       <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/button-name?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
     </div>
   </details>
 
-  <details class="finding">
+  <details class="finding" id="f2">
     <summary>
       <span class="num">02</span>
       <span class="fhead">
@@ -348,7 +357,7 @@ section is written to be handed straight to whoever maintains the site.</div>
     </div>
   </details>
 
-  <details class="finding">
+  <details class="finding" id="f3">
     <summary>
       <span class="num">03</span>
       <span class="fhead">
@@ -373,7 +382,7 @@ section is written to be handed straight to whoever maintains the site.</div>
     </div>
   </details>
 
-  <details class="finding">
+  <details class="finding" id="f4">
     <summary>
       <span class="num">04</span>
       <span class="fhead">
@@ -391,7 +400,7 @@ section is written to be handed straight to whoever maintains the site.</div>
     </div>
   </details>
 
-  <details class="finding">
+  <details class="finding" id="f5">
     <summary>
       <span class="num">05</span>
       <span class="fhead">
@@ -433,7 +442,7 @@ section is written to be handed straight to whoever maintains the site.</div>
     </div>
   </details>
 
-  <details class="finding">
+  <details class="finding" id="f6">
     <summary>
       <span class="num">06</span>
       <span class="fhead">
