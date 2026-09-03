@@ -30,6 +30,7 @@ larger sites add $0.35 per additional page, capped at $900.
 - [Home](https://theaccessaudit.github.io/): the offer, pricing, and the limits of automated testing stated plainly.
 - [Sample report](https://theaccessaudit.github.io/sample-report.html): a real report from the pipeline, run against our own deliberately broken demo store (Northwind Ceramics), because no real business's failures belong in a marketing sample.
 - [Privacy](https://theaccessaudit.github.io/privacy.html)
+- [Terms of service](https://theaccessaudit.github.io/terms.html): what an audit is and is not, refunds, and the liability cap.
 
 ## What we will not claim
 

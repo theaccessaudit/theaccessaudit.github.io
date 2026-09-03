@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Terms of service — The Access Audit</title>
+<meta name="description" content="What you are buying when you order an audit from The Access Audit, what it is not, and how refunds and liability work.">
+<link rel="canonical" href="https://theaccessaudit.github.io/terms.html">
+<style>
+/* Newsreader — SIL Open Font License 1.1. See fonts/LICENSE-Newsreader.txt.
+   Absolute path so this renders identically wherever it is linked from. */
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader.woff2") format("woff2");
+  font-weight: 400 600; font-style: normal; font-display: swap;
+}
+:root {
+  color-scheme: light;
+  --paper:#fbfaf7; --surface:#ffffff; --sunk:#f4f2ed;
+  --ink:#14161a; --ink-2:#4a5058; --ink-3:#6b7280;
+  --rule:#e2ded6; --rule-firm:#cbc6bb;
+  --accent:#17408f; --accent-hi:#0f2f6d;
+  --measure:66ch; --shell:44rem;
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem; --s6:2rem; --s7:3rem; --s8:4rem;
+  --step--1: clamp(.82rem, .79rem + .13vw, .89rem);
+  --step-0:  clamp(1.0625rem, 1.03rem + .17vw, 1.15rem);
+  --step-1:  clamp(1.25rem, 1.18rem + .33vw, 1.45rem);
+  --step-2:  clamp(1.55rem, 1.4rem + .7vw, 2rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper:#0f1114; --surface:#16191e; --sunk:#1b1f25;
+    --ink:#eceef1; --ink-2:#b3bac4; --ink-3:#949ca8;
+    --rule:#272c34; --rule-firm:#3a414b;
+    --accent:#9dbaff; --accent-hi:#c3d3ff;
+  }
+}
+*, *::before, *::after { box-sizing: border-box }
+* { margin: 0 }
+html { -webkit-text-size-adjust: 100% }
+body {
+  background: var(--paper); color: var(--ink);
+  font: var(--step-0)/1.62 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-synthesis-weight: none; text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent); color: var(--paper) }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px }
+h1, h2 {
+  font-family: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 600; letter-spacing: -.018em; line-height: 1.14; text-wrap: balance;
+}
+h1 { font-size: var(--step-2); letter-spacing: -.026em }
+h2 { font-size: var(--step-1); letter-spacing: -.012em; margin-top: var(--s7) }
+p, li { text-wrap: pretty; color: var(--ink-2); max-width: var(--measure) }
+h1 + p, h2 + p { margin-top: var(--s3) }
+p + p, p + ul, ul + p { margin-top: var(--s4) }
+ul { padding-left: 1.2em }
+li + li { margin-top: var(--s2) }
+a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: .07em }
+a:hover { color: var(--accent-hi); text-decoration-thickness: .12em }
+.shell { max-width: var(--shell); margin-inline: auto; padding-inline: var(--s5) }
+.masthead { border-bottom: 1px solid var(--rule); padding-block: var(--s5) }
+.masthead .shell { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); align-items: baseline }
+.wordmark {
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: var(--step-1); font-weight: 600; letter-spacing: -.02em;
+  color: var(--ink); text-decoration: none;
+}
+.masthead p { color: var(--ink-2); font-size: var(--step--1); margin: 0 }
+main { padding-block: var(--s8) }
+.lede { font-size: var(--step-1); color: var(--ink-2); line-height: 1.5; margin-top: var(--s4) }
+.dated { font-size: var(--step--1); color: var(--ink-3); margin-top: var(--s5) }
+.back { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--rule) }
+.back a { color: var(--ink); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--rule-firm); padding-bottom: 2px }
+.back a:hover { color: var(--accent); border-bottom-color: var(--accent) }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="wordmark" href="/">The Access Audit</a>
+    <p>Independent WCAG 2.1 AA testing — Aaron Siebold</p>
+  </div>
+</header>
+
+<main>
+  <div class="shell">
+    <h1>Terms of service</h1>
+    <p class="lede">What you are buying, what it is not, and how money and responsibility work.
+    Ordering an audit means you agree to these.</p>
+    <p class="dated">Effective 3 September 2026. The Access Audit is operated by Aaron Siebold, a sole
+    proprietor in Los Angeles, California.</p>
+
+    <h2>1. What you are buying</h2>
+    <p>A technical accessibility assessment of the website you name at checkout, tested against
+    the Web Content Accessibility Guidelines (WCAG) 2.1 Levels A and AA, using automated testing
+    tools and, where the tier you chose includes it, manual testing by a person. The deliverable is
+    a written report of findings with severity rankings and remediation guidance, delivered by
+    email as HTML and PDF within the turnaround stated for your tier.</p>
+
+    <h2>2. What it is not</h2>
+    <p>By ordering you acknowledge and agree that:</p>
+    <ul>
+      <li>The Access Audit is not a law firm and gives no legal advice, legal opinions, or predictions
+      about legal outcomes. Direct legal questions to your own counsel.</li>
+      <li>The report is a technical assessment. It is not a certification of compliance with the
+      Americans with Disabilities Act, the European Accessibility Act, Section 508, or any other
+      law, and no such certification exists.</li>
+      <li>No assessment can guarantee that a website will not receive complaints or litigation.</li>
+      <li>Automated testing identifies a substantial portion, but not all, of WCAG conformance issues.
+      Every report states its methodology and its limits.</li>
+      <li>Where a tier includes an Accessibility Conformance Report, that document records our
+      testing and findings. It is not an attestation made on your behalf and not a certification.</li>
+    </ul>
+
+    <h2>3. Your part</h2>
+    <p>Give us the website address in scope and, if pages sit behind a login, a test account you
+    create for the engagement. Only order an audit of a site you own or are authorised to have
+    tested. We honour the site&rsquo;s robots.txt unless you authorise otherwise in writing.</p>
+
+    <h2>4. Money and refunds</h2>
+    <p>Prices are as shown on the pricing page at the time of checkout and are charged in full at
+    checkout. If we cannot scan the site you named (for example, it is offline, blocks automated
+    access, or is not the site you own), we tell you and refund the payment in full. Once a report
+    has been delivered, the fee is earned; if the report is wrong about your site, tell us within
+    14 days and we will correct it or refund the tier fee, our choice. Remediation work and larger
+    engagements are quoted separately after the audit and invoiced on their own terms.</p>
+
+    <h2>5. Ownership</h2>
+    <p>Once paid for, the report is yours to use however you like. The Access Audit keeps ownership
+    of its tools, scripts, templates and methodology, and may use anonymised, non-identifying
+    findings data. We will not name you as a client without your permission.</p>
+
+    <h2>6. Confidentiality</h2>
+    <p>Reports and scan data are kept privately as engagement records and shared with no one but
+    you. See the <a href="privacy.html">privacy page</a> for what this site collects (nothing).</p>
+
+    <h2>7. Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, The Access Audit&rsquo;s total liability arising from
+    an audit is limited to the fees you paid for it, and neither party is liable to the other for
+    indirect, incidental, special or consequential damages, including lost profits, however
+    arising. Nothing here limits liability that cannot be limited under California law.</p>
+
+    <h2>8. Governing law</h2>
+    <p>These terms are governed by the laws of the State of California. Any dispute will be
+    resolved in the state or federal courts located in Los Angeles County, California.</p>
+
+    <h2>9. Changes</h2>
+    <p>If these terms change, the effective date above changes with them. The terms in force when
+    you ordered are the ones that apply to that order.</p>
+
+    <p class="back"><a href="/">Back to The Access Audit</a></p>
+  </div>
+</main>
+
+</body>
+</html>
