@@ -157,6 +157,9 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 }
 .hero-link a:not(.btn):hover { color: var(--accent); border-bottom-color: var(--accent); }
 .hero-link .btn { text-decoration: none; }
+#sample p:has(.btn) { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4) var(--s5); }
+.quiet { color: var(--ink-2); text-underline-offset: .18em; }
+.quiet:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .hero-link a:not(.btn) { transition: none; } }
 
 /* The masthead-rule-headline-ledger stack, the same composition as the share card. */
@@ -696,9 +699,11 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 <section id="sample">
   <div class="shell">
     <h2>The deliverable, not a promise</h2>
-    <p class="lede">This is an actual report from our pipeline, run against Deque's intentionally
-    broken demo site. What you see is what you get.</p>
-    <p><a class="btn ghost" href="sample-report.html">Open the sample report</a></p>
+    <p class="lede">We built a small store, broke it on purpose, and pointed the pipeline at it.
+    The faults it finds are the ones real shops have. Nothing in the report is hand-written or
+    tidied up afterwards.</p>
+    <p><a class="btn ghost" href="sample-report.html">Open the sample report</a>
+    <a class="quiet" href="demo-store/">See the store it audited</a></p>
   </div>
 </section>
 

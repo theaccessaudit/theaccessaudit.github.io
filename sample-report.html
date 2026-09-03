@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en"><head>
+<link rel="canonical" href="https://theaccessaudit.github.io/sample-report.html"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="https://theaccessaudit.github.io/sample-report.html">
 
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; base-uri 'none'; form-action 'none'">
-<title>Accessibility audit — dequeuniversity.com — The Access Audit</title>
+<title>Accessibility audit — theaccessaudit.github.io/demo-store/ — The Access Audit</title>
 <style>  /*! Newsreader — Copyright 2019 The Newsreader Project Authors.
       Licensed under the SIL Open Font License 1.1 — https://openfontlicense.org
       Source: https://github.com/productiontype/Newsreader */
@@ -231,11 +231,11 @@
 </header>
 
 <div class="titleblock">
-  <h1>Accessibility audit of <span class="host">dequeuniversity.com</span></h1>
-  <p class="standard">WCAG 2.1 Level A and AA · 6 pages tested · 3 September 2026</p>
-  <p class="verdict"><b>8 distinct issues</b> were found across
-       <b>6 pages</b>.
-       Of those, <b>8</b>
+  <h1>Accessibility audit of <span class="host">theaccessaudit.github.io/demo-store/</span></h1>
+  <p class="standard">WCAG 2.1 Level A and AA · 4 pages tested · 3 September 2026</p>
+  <p class="verdict"><b>6 distinct issues</b> were found across
+       <b>4 pages</b>, appearing <b>14</b> times in total.
+       Of those, <b>6</b>
               are ranked critical or serious &mdash; the two levels
               axe-core reserves for barriers that stop a task rather than slow it down.
        Every entry below names the rule, the pages it appears on, the exact elements, and the fix.</p>
@@ -244,24 +244,24 @@
 
 
 <dl class="ledger">
-  <div><dt class="s-critical">3</dt><dd>Critical</dd></div>
-  <div><dt class="s-serious">5</dt><dd>Serious</dd></div>
+  <div><dt class="s-critical">8</dt><dd>Critical</dd></div>
+  <div><dt class="s-serious">6</dt><dd>Serious</dd></div>
   <div><dt class="s-moderate zero">0</dt><dd>Moderate</dd></div>
   <div><dt class="s-minor zero">0</dt><dd>Minor</dd></div>
 </dl>
-<p class="totals"><b>8</b> total violations ·
-<b>8</b> distinct rules ·
-<b>6</b> pages ·
+<p class="totals"><b>14</b> total violations ·
+<b>6</b> distinct rules ·
+<b>4</b> pages ·
 engines: axe-core and IBM Equal Access</p>
 
 <nav class="contents" aria-labelledby="toc-h">
   <h2 id="toc-h">Contents</h2>
   <ol>
-    <li><a href="#findings">Findings</a><span>8 issues</span></li>
-    <li><a href="#keyboard">Keyboard walk</a><span>6 pages walked</span></li>
-    <li><a href="#pages">Pages scanned</a><span>6 pages</span></li>
+    <li><a href="#findings">Findings</a><span>6 issues</span></li>
+    <li><a href="#keyboard">Keyboard walk</a><span>4 pages walked</span></li>
+    <li><a href="#pages">Pages scanned</a><span>4 pages</span></li>
     <li><a href="#crosscheck">Independent second-engine cross-check</a><span>IBM Equal Access</span></li>
-    <li><a href="#machine">Machine readability</a><span>5 notes</span></li>
+    <li><a href="#machine">Machine readability</a><span>4 notes</span></li>
     <li><a href="#ownership">Where a finding actually lives</a><span>Scope</span></li>
     <li><a href="#manual">What automated scanning cannot check</a><span>7 checks</span></li>
   </ol>
@@ -278,16 +278,54 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="fhead">
         <span class="sev s-critical">critical</span>
         <span class="ftitle">Buttons must have discernible text</span>
-        <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 4.1.2 (A)</span>
+        <span class="fmeta"><b>10 instances</b> across <b>4 pages</b> &middot; WCAG 4.1.2 (A)</span>
       </span>
     </summary>
     <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
-      <pre><code>.departure-date &gt; .ui-datepicker-trigger:nth-child(4)
-&lt;button class=&quot;ui-datepicker-trigger&quot; type=&quot;button&quot;&gt;
-&lt;!-- &lt;img title=&quot;...&quot; alt=&quot;...&quot; src=&quot;/redesign/assets/demo-sites/mars/images/calendar.png&quot;&gt; --&gt;
-&lt;/button&gt;</code></pre>
-      
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
+      <pre><code>button:nth-child(1)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;6&quot;&gt;&lt;/circle&gt;&lt;path d=&quot;M13.5 13.5 18 18&quot;&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre><pre><code>.icons &gt; button:nth-child(2)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;path d=&quot;M3 4h2l2 9h8l2-6H6&quot;&gt;&lt;/path&gt;&lt;circle cx=&quot;9&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;&lt;circle cx=&quot;15&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre><pre><code>button:nth-child(1)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;6&quot;&gt;&lt;/circle&gt;&lt;path d=&quot;M13.5 13.5 18 18&quot;&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre><pre><code>button:nth-child(2)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;path d=&quot;M3 4h2l2 9h8l2-6H6&quot;&gt;&lt;/path&gt;&lt;circle cx=&quot;9&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;&lt;circle cx=&quot;15&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre><pre><code>button:nth-child(1)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;6&quot;&gt;&lt;/circle&gt;&lt;path d=&quot;M13.5 13.5 18 18&quot;&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre><pre><code>button:nth-child(2)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;path d=&quot;M3 4h2l2 9h8l2-6H6&quot;&gt;&lt;/path&gt;&lt;circle cx=&quot;9&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;&lt;circle cx=&quot;15&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre><pre><code>.icons &gt; button:nth-child(1)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;6&quot;&gt;&lt;/circle&gt;&lt;path d=&quot;M13.5 13.5 18 18&quot;&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre><pre><code>button:nth-child(2)
+&lt;button&gt;
+        &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot;&gt;
+          &lt;path d=&quot;M3 4h2l2 9h8l2-6H6&quot;&gt;&lt;/path&gt;&lt;circle cx=&quot;9&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;&lt;circle cx=&quot;15&quot; cy=&quot;16&quot; r=&quot;1.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;</code></pre>
+      <p class="fnote">Showing 8 of 10 affected elements. The accompanying
+             JSON data file lists up to 25 per page for this rule.</p>
       <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/button-name?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
     </div>
   </details>
@@ -298,16 +336,13 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="fhead">
         <span class="sev s-critical">critical</span>
         <span class="ftitle">Images must have alternative text</span>
-        <span class="fmeta"><b>4 instances</b> across <b>1 page</b> &middot; WCAG 1.1.1 (A)</span>
+        <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 1.1.1 (A)</span>
       </span>
     </summary>
     <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
-      <pre><code>img[src$=&quot;seg&quot;]
-&lt;img src=&quot;/assets/demo-sites/mars/js/seg&quot; width=&quot;1&quot; height=&quot;1&quot;&gt;</code></pre><pre><code>li:nth-child(1) &gt; a[href=&quot;mars2.html?a=crater_adventure&quot;] &gt; img[width=&quot;210&quot;][height=&quot;120&quot;]
-&lt;img src=&quot;/assets/demo-sites/mars/images/mars-spaceman.jpg&quot; class=&quot;&quot; width=&quot;210&quot; height=&quot;120&quot;&gt;</code></pre><pre><code>li:nth-child(8) &gt; a[href=&quot;mars2.html?a=crater_adventure&quot;] &gt; img[width=&quot;210&quot;][height=&quot;120&quot;]
-&lt;img src=&quot;/assets/demo-sites/mars/images/mars-spaceman.jpg&quot; class=&quot;&quot; width=&quot;210&quot; height=&quot;120&quot;&gt;</code></pre><pre><code>li:nth-child(15) &gt; a[href=&quot;mars2.html?a=crater_adventure&quot;] &gt; img[width=&quot;210&quot;][height=&quot;120&quot;]
-&lt;img src=&quot;/assets/demo-sites/mars/images/mars-spaceman.jpg&quot; class=&quot;&quot; width=&quot;210&quot; height=&quot;120&quot;&gt;</code></pre>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code></p>
+      <pre><code>article:nth-child(1) &gt; img
+&lt;img class=&quot;ph&quot; src=&quot;data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%203'%3E%3Crect%20width='4'%20height='3'%20fill='%23ded5c8'/%3E%3C/svg%3E&quot;&gt;</code></pre>
       
       <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
     </div>
@@ -319,19 +354,20 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="fhead">
         <span class="sev s-critical">critical</span>
         <span class="ftitle">Select element must have an accessible name</span>
-        <span class="fmeta"><b>2 instances</b> across <b>1 page</b> &middot; WCAG 4.1.2 (A)</span>
+        <span class="fmeta"><b>4 instances</b> across <b>3 pages</b> &middot; WCAG 4.1.2 (A)</span>
       </span>
     </summary>
     <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
-      <pre><code>#time0
-&lt;select name=&quot;time0&quot; id=&quot;time0&quot; class=&quot;select-time&quot; tabindex=&quot;4&quot;&gt;</code></pre><pre><code>#passenger0 &gt; .age-range.wrapper &gt; .traveler-type
-&lt;select id=&quot;traveler0&quot; class=&quot;traveler-type&quot;&gt;
-&lt;option value=&quot;0&quot;&gt;Adult (26+)&lt;/option&gt;
-&lt;option value=&quot;1&quot;&gt;Youth (12-25)&lt;/option&gt;
-&lt;option value=&quot;2&quot;&gt;Child (4-11)&lt;/option&gt;
-&lt;option value=&quot;3&quot;&gt;Senior (60+)&lt;/option&gt;
-&lt;/select&gt;</code></pre>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
+      <pre><code>select
+&lt;select&gt;
+          &lt;option&gt;1&lt;/option&gt;&lt;option&gt;2&lt;/option&gt;&lt;option&gt;3&lt;/option&gt;
+        &lt;/select&gt;</code></pre><pre><code>select
+&lt;select&gt;
+          &lt;option&gt;1&lt;/option&gt;&lt;option&gt;2&lt;/option&gt;&lt;option&gt;3&lt;/option&gt;
+        &lt;/select&gt;</code></pre><pre><code>tr:nth-child(2) &gt; td:nth-child(3) &gt; select
+&lt;select&gt;&lt;option&gt;1&lt;/option&gt;&lt;option&gt;2&lt;/option&gt;&lt;/select&gt;</code></pre><pre><code>tr:nth-child(3) &gt; td:nth-child(3) &gt; select
+&lt;select&gt;&lt;option&gt;1&lt;/option&gt;&lt;option&gt;2&lt;/option&gt;&lt;/select&gt;</code></pre>
       
       <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/select-name?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
     </div>
@@ -343,20 +379,13 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="fhead">
         <span class="sev s-serious">serious</span>
         <span class="ftitle">Elements must meet minimum color contrast ratio thresholds</span>
-        <span class="fmeta"><b>6 instances</b> across <b>1 page</b> &middot; WCAG 1.4.3 (AA)</span>
+        <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 1.4.3 (AA)</span>
       </span>
     </summary>
     <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
-      <pre><code>a[href=&quot;mars2.html?a=be_bold&quot;] &gt; h3
-&lt;h3&gt;Be Bold...&lt;/h3&gt;</code></pre><pre><code>#vap-plan &gt; p:nth-child(3)
-&lt;p&gt;Step out of your comfort zone, and into a rocket with enough fuel to blast a Manhattan-sized crater if it explodes. But it won't. Probably.&lt;br&gt;
-&amp;nbsp; &lt;/p&gt;</code></pre><pre><code>a[href=&quot;mars2.html?a=countdown&quot;] &gt; h3
-&lt;h3&gt;Countdown...&lt;/h3&gt;</code></pre><pre><code>#vap-book &gt; p:nth-child(3)
-&lt;p&gt;If you're serious about traveling to Mars - really serious - then &lt;a href=&quot;mars2.html?a=last_will&quot;&gt;prepare your last will and testament&lt;/a&gt;, and book a trip! &lt;/p&gt;</code></pre><pre><code>a[href=&quot;mars2.html?a=blast_off&quot;] &gt; h3
-&lt;h3&gt;Blast Off!&lt;/h3&gt;</code></pre><pre><code>#vap-travel &gt; p:nth-child(3)
-&lt;p&gt;Expect violent turbulence, bone-crushing g-forces, muscle atrophy, and certain death (hey, everyone's death is certain at some point, right?).&lt;br&gt;
-&amp;nbsp; &lt;/p&gt;</code></pre>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code></p>
+      <pre><code>span
+&lt;span class=&quot;badge&quot;&gt;SALE&lt;/span&gt;</code></pre>
       
       <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
     </div>
@@ -367,16 +396,40 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="num">05</span>
       <span class="fhead">
         <span class="sev s-serious">serious</span>
-        <span class="ftitle">Frames must have an accessible name</span>
-        <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 4.1.2 (A)</span>
+        <span class="ftitle">Links must have discernible text</span>
+        <span class="fmeta"><b>5 instances</b> across <b>4 pages</b> &middot; WCAG 2.4.4, 4.1.2 (A)</span>
       </span>
     </summary>
     <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
-      <pre><code>#fafbba78
-&lt;iframe id=&quot;fafbba78&quot; name=&quot;f2bc5e72d&quot; scrolling=&quot;no&quot; style=&quot;border: none; overflow: hidden; height: 62px; width: 292px;&quot; class=&quot;fb_ltr&quot; src=&quot;/assets/demo-sites/mars/js/likebox.html&quot;&gt;&lt;/iframe&gt;</code></pre>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
+      <pre><code>a[href=&quot;#&quot;]:nth-child(1)
+&lt;a href=&quot;#&quot;&gt;
+        &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;&gt;
+          &lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;14&quot; height=&quot;14&quot; rx=&quot;4&quot;&gt;&lt;/rect&gt;&lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;3.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;</code></pre><pre><code>a[href=&quot;#&quot;]:nth-child(2)
+&lt;a href=&quot;#&quot;&gt;
+        &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;&gt;
+          &lt;path d=&quot;M11 6h2V3h-2a3 3 0 0 0-3 3v2H6v3h2v6h3v-6h2l1-3h-3V6.7c0-.4.3-.7.7-.7Z&quot;&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;</code></pre><pre><code>a[href=&quot;#&quot;]
+&lt;a href=&quot;#&quot;&gt;
+        &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;&gt;
+          &lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;14&quot; height=&quot;14&quot; rx=&quot;4&quot;&gt;&lt;/rect&gt;&lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;3.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;</code></pre><pre><code>a[href=&quot;#&quot;]
+&lt;a href=&quot;#&quot;&gt;
+        &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;&gt;
+          &lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;14&quot; height=&quot;14&quot; rx=&quot;4&quot;&gt;&lt;/rect&gt;&lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;3.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;</code></pre><pre><code>a[href=&quot;#&quot;]
+&lt;a href=&quot;#&quot;&gt;
+        &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;&gt;
+          &lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;14&quot; height=&quot;14&quot; rx=&quot;4&quot;&gt;&lt;/rect&gt;&lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;3.2&quot;&gt;&lt;/circle&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;</code></pre>
       
-      <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
+      <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/link-name?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
     </div>
   </details>
 
@@ -390,70 +443,24 @@ section is written to be handed straight to whoever maintains the site.</div>
       </span>
     </summary>
     <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
       <pre><code>html
-&lt;html class=&quot; js no-flexbox flexb...&quot;&gt;</code></pre>
+&lt;html&gt;</code></pre>
       
       <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
     </div>
   </details>
-
-  <details class="finding">
-    <summary>
-      <span class="num">07</span>
-      <span class="fhead">
-        <span class="sev s-serious">serious</span>
-        <span class="ftitle">Links must be distinguishable without relying on color</span>
-        <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 1.4.1 (A)</span>
-      </span>
-    </summary>
-    <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
-      <pre><code>a[href=&quot;mars2.html?a=last_will&quot;]
-&lt;a href=&quot;mars2.html?a=last_will&quot;&gt;prepare your last will and testament&lt;/a&gt;</code></pre>
-      
-      <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
-    </div>
-  </details>
-
-  <details class="finding">
-    <summary>
-      <span class="num">08</span>
-      <span class="fhead">
-        <span class="sev s-serious">serious</span>
-        <span class="ftitle">Links must have discernible text</span>
-        <span class="fmeta"><b>8 instances</b> across <b>1 page</b> &middot; WCAG 2.4.4, 4.1.2 (A)</span>
-      </span>
-    </summary>
-    <div class="fbody">
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code></p>
-      <pre><code>.link[href$=&quot;mars#&quot;]
-&lt;a class=&quot;link&quot; href=&quot;/demo/mars#&quot;&gt;&lt;i class=&quot;icon-menu-home&quot;&gt;&lt;/i&gt;&lt;/a&gt;</code></pre><pre><code>li:nth-child(1) &gt; a[href=&quot;mars2.html?a=crater_adventure&quot;]
-&lt;a href=&quot;mars2.html?a=crater_adventure&quot;&gt;
-&lt;img src=&quot;/assets/demo-sites/mars/images/mars-spaceman.jpg&quot; class=&quot;&quot; width=&quot;210&quot; height=&quot;120&quot;&gt;&lt;/a&gt;</code></pre><pre><code>li:nth-child(8) &gt; a[href=&quot;mars2.html?a=crater_adventure&quot;]
-&lt;a href=&quot;mars2.html?a=crater_adventure&quot;&gt;
-&lt;img src=&quot;/assets/demo-sites/mars/images/mars-spaceman.jpg&quot; class=&quot;&quot; width=&quot;210&quot; height=&quot;120&quot;&gt;&lt;/a&gt;</code></pre><pre><code>li:nth-child(15) &gt; a[href=&quot;mars2.html?a=crater_adventure&quot;]
-&lt;a href=&quot;mars2.html?a=crater_adventure&quot;&gt;
-&lt;img src=&quot;/assets/demo-sites/mars/images/mars-spaceman.jpg&quot; class=&quot;&quot; width=&quot;210&quot; height=&quot;120&quot;&gt;&lt;/a&gt;</code></pre><pre><code>.re_ajax_p3 &gt; a[href=&quot;mars2.html?a=&quot;]
-&lt;a href=&quot;mars2.html?a=&quot;&gt;&lt;/a&gt;</code></pre><pre><code>.active
-&lt;a target=&quot;player&quot; data-text=&quot;Life was possible on Mars&quot; class=&quot;fader first active&quot; href=&quot;http://www.youtube.com/embed/OagLGti_hTE?controls=1&amp;amp;showinfo=1&amp;amp;modestbranding=0&amp;amp;wmode=opaque&amp;amp;enablejsapi=1&quot; id=&quot;default&quot;&gt;&lt;/a&gt;</code></pre><pre><code>a[data-text=&quot;Why Mars died&quot;]
-&lt;a target=&quot;player&quot; data-text=&quot;Why Mars died&quot; class=&quot;fader first&quot; href=&quot;http://www.youtube.com/embed/oC31pqk9sak?controls=1&amp;amp;showinfo=1&amp;amp;modestbranding=0&amp;amp;wmode=opaque&amp;amp;enablejsapi=1&quot; id=&quot;default&quot;&gt;&lt;/a&gt;</code></pre><pre><code>a[data-text=&quot;The world that never was&quot;]
-&lt;a target=&quot;player&quot; data-text=&quot;The world that never was&quot; class=&quot;fader first&quot; href=&quot;http://www.youtube.com/embed/JgMXPXdqJn8?controls=1&amp;amp;showinfo=1&amp;amp;modestbranding=0&amp;amp;wmode=opaque&amp;amp;enablejsapi=1&quot; id=&quot;default&quot;&gt;&lt;/a&gt;</code></pre>
-      
-      <p class="fixlink"><a href="https://dequeuniversity.com/rules/axe/4.13/link-name?application=axeAPI" target="_blank" rel="noopener">Step-by-step fix for this rule (Deque University)</a></p>
-    </div>
-  </details>
 <h2 id="keyboard">Keyboard walk</h2>
 <div class="note">A scan reads markup. This section is different: a real browser pressed the
-<kbd>Tab</kbd> key through 6 pages and
+<kbd>Tab</kbd> key through 4 pages and
 recorded what a visitor who cannot use a mouse actually experiences — what they can reach, where
 focus becomes invisible, whether it ever gets trapped, and whether the order of the page still
 makes sense. Real key presses are used rather than scripted focus, because a browser only shows
 its focus ring for genuine keyboard input; measuring the scripted kind would report missing focus
 indicators on sites that have perfectly good ones.
-<br><br><strong>Coverage.</strong> 6 of 6
-scanned pages walked, <b>250</b> interactive elements found and
-<b>208</b> reached by keyboard.</div>
+<br><br><strong>Coverage.</strong> 4 of 4
+scanned pages walked, <b>62</b> interactive elements found and
+<b>58</b> reached by keyboard.</div>
 
   <details class="finding compact">
     <summary>
@@ -461,13 +468,13 @@ scanned pages walked, <b>250</b> interactive elements found and
       <span class="fhead">
         <span class="sev s-critical">critical</span>
         <span class="ftitle">Interactive elements cannot be reached by keyboard</span>
-        <span class="fmeta">WCAG 2.1.1 &middot; 4 pages</span>
+        <span class="fmeta">WCAG 2.1.1 &middot; 3 pages</span>
       </span>
     </summary>
     <div class="fbody">
-      <p>47 interactive element(s) were never focused by the Tab key: input#widget-controls-passes, input#widget-controls-reservations, input#widget-controls-activities, input#widget-controls-hotels, input#route-type-round-trip, input#route-type-multi-city, input#pass-question-yes, a#default, and 39 more.</p>
+      <p>4 interactive element(s) were never focused by the Tab key: div &quot;S&quot;, div &quot;M&quot;, div &quot;L&quot;, div &quot;Add to cart&quot;.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Use a real &lt;button&gt; or &lt;a href&gt; instead of a click handler on a &lt;div&gt; or &lt;span&gt;. If a custom control is unavoidable it needs tabindex=&quot;0&quot;, a role, and Enter/Space handling.</p>
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code> <code>https://dequeuniversity.com/demo/mars2.html?a=add_trip.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=facebook_login.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=cart</code></p>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
     </div>
   </details>
 
@@ -481,9 +488,9 @@ scanned pages walked, <b>250</b> interactive elements found and
       </span>
     </summary>
     <div class="fbody">
-      <p>3 of 108 focusable elements look identical whether or not they have keyboard focus: iframe#fb_xdm_frame_http, iframe#fb_xdm_frame_https, a &quot;Login&quot;. A keyboard visitor cannot tell where they are on the page.</p>
+      <p>17 of 17 focusable elements look identical whether or not they have keyboard focus: a &quot;The Access Audit&quot;, a &quot;Northwind Ceramics&quot;, a &quot;Shop&quot;, a &quot;Mugs&quot;, a &quot;Bowls&quot;, a &quot;Cart&quot;, button, button, and 9 more. A keyboard visitor cannot tell where they are on the page.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Remove any `outline: none` / `outline: 0` that is not immediately replaced by another visible indicator, and style :focus-visible explicitly — an outline with an offset, or a clear background or shadow change.</p>
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code> <code>https://dequeuniversity.com/demo/mars2.html?a=add_trip.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=find_pass.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=sign_in</code></p>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
     </div>
   </details>
 
@@ -493,13 +500,13 @@ scanned pages walked, <b>250</b> interactive elements found and
       <span class="fhead">
         <span class="sev s-serious">serious</span>
         <span class="ftitle">Focus order does not follow the visual order</span>
-        <span class="fmeta">WCAG 2.4.3 &middot; 3 pages</span>
+        <span class="fmeta">WCAG 2.4.3 &middot; 1 page</span>
       </span>
     </summary>
     <div class="fbody">
-      <p>58 of 108 focus stops would have to move for the keyboard order to match the order the page is read in. First affected: input#from0, input#to0, input#deptDate0, select &quot;12 am 01 am 02 am 03 am 04 am 05 am 06 a&quot;, a &quot;Be Bold...&quot;, a &quot;Why MarsCommuter?&quot;.</p>
+      <p>4 of 15 focus stops would have to move for the keyboard order to match the order the page is read in. First affected: a &quot;The Access Audit&quot;, a &quot;Northwind Ceramics&quot;, a &quot;Shop&quot;, a &quot;Mugs&quot;.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Order the elements in the HTML the way they are meant to be read, and let the DOM drive the tab sequence. Reach for CSS order/flex-direction/grid-area sparingly, and never for positive tabindex values, which override the sequence globally.</p>
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code> <code>https://dequeuniversity.com/demo/mars2.html?a=find_pass.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=sign_in</code></p>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/mug.html</code></p>
     </div>
   </details>
 
@@ -508,46 +515,30 @@ scanned pages walked, <b>250</b> interactive elements found and
       <span class="num">04</span>
       <span class="fhead">
         <span class="sev s-moderate">moderate</span>
-        <span class="ftitle">Focus indicator is too faint</span>
-        <span class="fmeta">WCAG 1.4.11 &middot; 6 pages</span>
-      </span>
-    </summary>
-    <div class="fbody">
-      <p>21 element(s) have a focus outline below the 3:1 contrast WCAG requires for non-text indicators: a &quot;Add a trip&quot; (2.33:1), a &quot;Find a pass&quot; (2.33:1), a &quot;Sign In&quot; (2.33:1), a &quot;My Cart $0.00&quot; (2.33:1), a (1.48:1), a &quot;Travel Agents&quot; (1.48:1).</p>
-      <p class="fixlink"><span class="lbl">Fix</span> Darken or lighten the outline colour until it reaches 3:1 against the surface behind it. An outline-offset of 2–3px also helps it read against a busy background.</p>
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code> <code>https://dequeuniversity.com/demo/mars2.html?a=add_trip.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=find_pass.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=facebook_login.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=sign_in</code> <code>https://dequeuniversity.com/demo/mars2.html?a=cart</code></p>
-    </div>
-  </details>
-
-  <details class="finding compact">
-    <summary>
-      <span class="num">05</span>
-      <span class="fhead">
-        <span class="sev s-moderate">moderate</span>
         <span class="ftitle">No skip link before the navigation</span>
-        <span class="fmeta">WCAG 2.4.1 &middot; 6 pages</span>
+        <span class="fmeta">WCAG 2.4.1 &middot; 4 pages</span>
       </span>
     </summary>
     <div class="fbody">
-      <p>The first thing the Tab key reaches is &quot;input#from0&quot;. On a page with 135 focusable elements, a keyboard or screen-reader visitor has to walk the whole header on every page before reaching the content.</p>
+      <p>The first thing the Tab key reaches is &quot;a &quot;The Access Audit&quot;&quot;. On a page with 17 focusable elements, a keyboard or screen-reader visitor has to walk the whole header on every page before reaching the content.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Add a link to #main as the first element in the body, visually hidden until it receives focus, and give the main content that id.</p>
-      <p class="affected"><span class="lbl">Affected pages</span> <code>https://dequeuniversity.com/demo/mars</code> <code>https://dequeuniversity.com/demo/mars2.html?a=add_trip.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=find_pass.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=facebook_login.html</code> <code>https://dequeuniversity.com/demo/mars2.html?a=sign_in</code> <code>https://dequeuniversity.com/demo/mars2.html?a=cart</code></p>
+      <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
     </div>
   </details>
 <h2 id="pages">Pages scanned</h2>
-<table><thead><tr><th>URL</th><th class="n">Violations</th><th class="n">Checks passed</th></tr></thead><tbody><tr><td><code>https://dequeuniversity.com/demo/mars</code></td><td class="n">8</td><td class="n">29</td></tr><tr><td><code>https://dequeuniversity.com/demo/mars2.html?a=add_trip.html</code></td><td class="n">0</td><td class="n">28</td></tr><tr><td><code>https://dequeuniversity.com/demo/mars2.html?a=find_pass.html</code></td><td class="n">0</td><td class="n">28</td></tr><tr><td><code>https://dequeuniversity.com/demo/mars2.html?a=facebook_login.html</code></td><td class="n">0</td><td class="n">28</td></tr><tr><td><code>https://dequeuniversity.com/demo/mars2.html?a=sign_in</code></td><td class="n">0</td><td class="n">28</td></tr><tr><td><code>https://dequeuniversity.com/demo/mars2.html?a=cart</code></td><td class="n">0</td><td class="n">28</td></tr></tbody></table>
+<table><thead><tr><th>URL</th><th class="n">Violations</th><th class="n">Checks passed</th></tr></thead><tbody><tr><td><code>https://theaccessaudit.github.io/demo-store/</code></td><td class="n">4</td><td class="n">15</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/mug.html</code></td><td class="n">3</td><td class="n">11</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/bowl.html</code></td><td class="n">3</td><td class="n">11</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/cart.html</code></td><td class="n">4</td><td class="n">12</td></tr></tbody></table>
 <h2 id="crosscheck">Independent second-engine cross-check</h2>
 <div class="note">Every page was also tested with IBM's Equal Access engine — a second,
 independently developed accessibility checker. Running two engines catches issues either one
 alone would miss and confirms the findings above aren't one tool's opinion. The IBM engine
-flagged <strong>108</strong> violations across
-6 pages, listed here for review.
+flagged <strong>50</strong> violations across
+4 pages, listed here for review.
 <strong>This number is not comparable to the total above.</strong> It is produced by IBM's
 <code>IBM_Accessibility</code> ruleset, which covers WCAG 2.1 A/AA <em>plus IBM's own
 additional requirements</em>, and its rule taxonomy differs from axe-core's — so the two
 counts measure different things and are never merged. The severity-ranked findings above
 remain the WCAG 2.1 A/AA result this audit is scoped to.</div>
-<table><thead><tr><th>IBM rule</th><th class="n">Count</th><th>Description</th></tr></thead><tbody><tr><td><code>aria_content_in_landmark</code></td><td class="n">52</td><td>Content is not within a landmark element</td></tr><tr><td><code>aria_landmark_name_unique</code></td><td class="n">13</td><td>Multiple elements with &quot;navigation&quot; landmarks within the same parent region are not distinguished from one another because they have the same &quot;&quot; label</td></tr><tr><td><code>aria_navigation_label_unique</code></td><td class="n">11</td><td>Multiple elements with &quot;navigation&quot; role do not have unique labels</td></tr><tr><td><code>a_text_purpose</code></td><td class="n">8</td><td>Hyperlink has no link text, label or image with a text alternative</td></tr><tr><td><code>input_checkboxes_grouped</code></td><td class="n">5</td><td>Radio input and others with the name &quot;route-type&quot; are not grouped together</td></tr><tr><td><code>img_alt_valid</code></td><td class="n">4</td><td>The image has neither an accessible name nor is marked as decorative or redundant</td></tr><tr><td><code>aria_form_label_unique</code></td><td class="n">3</td><td>Multiple elements with &quot;form&quot; role do not have unique labels</td></tr><tr><td><code>input_label_exists</code></td><td class="n">3</td><td>Form control element &lt;button&gt; has no associated label</td></tr><tr><td><code>aria_hidden_nontabbable</code></td><td class="n">2</td><td>Element &quot;iframe&quot; should not be focusable within the subtree of an element with an 'aria-hidden' attribute with value 'true'</td></tr><tr><td><code>target_spacing_sufficient</code></td><td class="n">2</td><td>Undersized target &quot;a&quot; does not have sufficient spacing of 12 CSS pixels from another target &quot;a&quot;</td></tr><tr><td><code>table_headers_exists</code></td><td class="n">2</td><td>Table has no headers identified</td></tr><tr><td><code>html_lang_exists</code></td><td class="n">1</td><td>Page detected as HTML, but does not have a 'lang' attribute</td></tr><tr><td><code>fieldset_label_valid</code></td><td class="n">1</td><td>Group/Fieldset does not have an accessible name</td></tr><tr><td><code>frame_title_exists</code></td><td class="n">1</td><td>Inline frame does not have a 'title' attribute</td></tr></tbody></table>
+<table><thead><tr><th>IBM rule</th><th class="n">Count</th><th>Description</th></tr></thead><tbody><tr><td><code>svg_graphics_labelled</code></td><td class="n">15</td><td>The SVG element has no accessible name</td></tr><tr><td><code>input_label_exists</code></td><td class="n">14</td><td>Form control element &lt;button&gt; has no associated label</td></tr><tr><td><code>aria_eventhandler_role_valid</code></td><td class="n">9</td><td>The &lt;div&gt; element with 'onclick' does not have a valid ARIA role specified</td></tr><tr><td><code>a_text_purpose</code></td><td class="n">5</td><td>Hyperlink has no link text, label or image with a text alternative</td></tr><tr><td><code>aria_content_in_landmark</code></td><td class="n">4</td><td>Content is not within a landmark element</td></tr><tr><td><code>img_alt_valid</code></td><td class="n">1</td><td>The image has neither an accessible name nor is marked as decorative or redundant</td></tr><tr><td><code>text_contrast_sufficient</code></td><td class="n">1</td><td>Text contrast of 2.06 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 700</td></tr><tr><td><code>html_lang_exists</code></td><td class="n">1</td><td>Page detected as HTML, but does not have a 'lang' attribute</td></tr></tbody></table>
 <h2 id="machine">Machine readability</h2>
 <div class="note">The same crawl that produced the findings above also records what a
 machine can read from each page: the structured data, the page titles, and the rules your
@@ -571,7 +562,7 @@ report should be read as a claim about it.</div>
       </span>
     </summary>
     <div class="fbody">
-      <p>None of the 6 pages scanned carry JSON-LD. Everything about who this business is has to be inferred from prose.</p>
+      <p>None of the 4 pages scanned carry JSON-LD. Everything about who this business is has to be inferred from prose.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Add an Organization or LocalBusiness block on the homepage first — name, URL, address, phone.</p>
     </div>
   </details>
@@ -581,43 +572,13 @@ report should be read as a claim about it.</div>
       <span class="num" aria-hidden="true"></span>
       <span class="fhead">
         <span class="sev s-serious">serious</span>
-        <span class="ftitle">5 pages share a title</span>
+        <span class="ftitle">2 pages share a title</span>
         <span class="fmeta">Also WCAG 2.4.2 Page Titled</span>
       </span>
     </summary>
     <div class="fbody">
-      <p>&quot;page not found&quot; on 5 pages (https://dequeuniversity.com/demo/mars2.html?a=add_trip.html, https://dequeuniversity.com/demo/mars2.html?a=find_pass.html)</p>
+      <p>&quot;products — northwind ceramics&quot; on 2 pages (https://theaccessaudit.github.io/demo-store/mug.html, https://theaccessaudit.github.io/demo-store/bowl.html)</p>
       <p class="fixlink"><span class="lbl">Fix</span> Write a distinct title per page — identical ones make the pages indistinguishable.</p>
-    </div>
-  </details>
-
-  <details class="finding compact">
-    <summary>
-      <span class="num" aria-hidden="true"></span>
-      <span class="fhead">
-        <span class="sev s-moderate">moderate</span>
-        <span class="ftitle">No sitemap.xml</span>
-        
-      </span>
-    </summary>
-    <div class="fbody">
-      <p>https://dequeuniversity.com/sitemap.xml returned nothing, so every crawler has to discover pages by following links.</p>
-      <p class="fixlink"><span class="lbl">Fix</span> Publish a sitemap.xml and reference it from robots.txt.</p>
-    </div>
-  </details>
-
-  <details class="finding compact">
-    <summary>
-      <span class="num" aria-hidden="true"></span>
-      <span class="fhead">
-        <span class="sev s-moderate">moderate</span>
-        <span class="ftitle">No llms.txt</span>
-        
-      </span>
-    </summary>
-    <div class="fbody">
-      <p>https://dequeuniversity.com/llms.txt returned nothing. llms.txt is a proposal (published by Jeremy Howard in September 2024) rather than a web standard, so treat it as optional — but it is one small file that states plainly what the business is and where the important pages are.</p>
-      <p class="fixlink"><span class="lbl">Fix</span> Add a short llms.txt summarising the business and linking the pages that matter.</p>
     </div>
   </details>
 
@@ -631,8 +592,23 @@ report should be read as a claim about it.</div>
       </span>
     </summary>
     <div class="fbody">
-      <p>None of the 6 pages scanned declares a canonical URL.</p>
+      <p>None of the 4 pages scanned declares a canonical URL.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Add &lt;link rel=&quot;canonical&quot;&gt; to each page so duplicate paths resolve to one address.</p>
+    </div>
+  </details>
+
+  <details class="finding compact">
+    <summary>
+      <span class="num" aria-hidden="true"></span>
+      <span class="fhead">
+        <span class="sev s-moderate">moderate</span>
+        <span class="ftitle">3 pages share a meta description</span>
+        
+      </span>
+    </summary>
+    <div class="fbody">
+      <p>&quot;small-batch stoneware, thrown and glazed by hand in ojai, ca&quot; on 3 pages (https://theaccessaudit.github.io/demo-store/, https://theaccessaudit.github.io/demo-store/mug.html)</p>
+      <p class="fixlink"><span class="lbl">Fix</span> Write a distinct meta description per page — identical ones make the pages indistinguishable.</p>
     </div>
   </details>
 <h2 id="ownership">Where a finding actually lives</h2>
@@ -674,7 +650,7 @@ about whether any search engine or assistant will <em>use</em> the page. That is
 here, it is not something we control, and no one can promise it.</p>
 <div class="colophon">
   <span>The Access Audit · Independent WCAG 2.1 AA testing</span>
-  <span>dequeuniversity.com · 3 September 2026</span>
+  <span>theaccessaudit.github.io/demo-store/ · 3 September 2026</span>
 </div>
 </footer>
 </main></body></html>

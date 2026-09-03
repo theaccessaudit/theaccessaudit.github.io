@@ -42,7 +42,18 @@ sample has to mirror the reader's own site.
 ```bash
 cd ~/a11y-venture/scanner
 bun scan.ts https://theaccessaudit.github.io/demo-store/ --pages 8
-cp ../reports/theaccessaudit.github.io-<date>.html ../site/sample-report.html
+bun publish-sample.ts ../reports/theaccessaudit.github.io-<date>.html
 ```
+
+**Use `publish-sample.ts`, not `cp`.** The published sample needs one line a
+client's report must never have — a canonical pointing at our own domain — so a
+plain copy silently drops it every time. It has been lost at least twice;
+`test-fixture` case 6b exists to catch it and caught a regeneration the same
+evening the guard was written. The script adds the canonical, verifies it landed,
+and refuses to publish a report that is not an audit of this store.
+
+Scan the LIVE url, never localhost. A report whose "affected pages" say
+`localhost:8781` is not a deliverable, and rewriting the host into a generated
+report would be forging one.
 
 The crawl scope stops at `/demo-store/`, so it cannot wander into the real site.
