@@ -5,5 +5,14 @@ Licensed under the SIL Open Font License, Version 1.1.
 Full text: https://openfontlicense.org
 
 This directory contains a latin-subset variable woff2 build obtained from
-Google Fonts. The OFL permits redistribution and embedding in a website;
-the font is not sold and is not bundled into any client deliverable.
+Google Fonts. The OFL permits redistribution and embedding in a website; the
+font is not sold.
+
+CHANGED 2026-09-03 — it IS bundled into client deliverables now. The report
+template embeds this file as a base64 data URI (scanner/scan.ts), so every
+report we send redistributes the font. OFL 1.1 clause 2 therefore applies to
+the deliverable, and the copyright notice above travels inside each report as
+the stylesheet's one surviving comment. scanner/test-fixture.ts fails if a
+generated report lacks it. The previous version of this paragraph said the font
+was "not bundled into any client deliverable" — true when written, made false by
+the embed, and corrected here.
