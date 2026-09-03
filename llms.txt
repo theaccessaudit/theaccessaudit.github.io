@@ -22,7 +22,7 @@ larger sites add $0.35 per additional page, capped at $900.
 - [Audit — $795](https://theaccessaudit.github.io/#pricing): everything in Scan, plus screen-reader review of key templates by a person, image-description quality review, and a prioritized remediation roadmap with effort estimates. 4 business days.
 - [Conformance — $2,250](https://theaccessaudit.github.io/#pricing): everything in Audit with screen-reader review of every template, plus VPAT 2.5Rev / ACR preparation for procurement, one post-remediation re-scan with a before-and-after delta, and a findings walkthrough call. 7–10 business days.
 - [Max — from $3,900](https://theaccessaudit.github.io/#pricing): for large catalogues. Everything in Conformance across the whole origin, plus screen-reader review of the full cart and checkout flow at three viewport widths and quarterly re-scans for 12 months. Includes the first 250 pages.
-- Remediation is quoted after the audit from the actual findings ($125/hr or a fixed package). Ongoing monitoring, a monthly re-scan with a diff and an alert, is $149/mo.
+- Remediation is priced from the findings the audit produced, not by the hour: $900 for 1-10 findings, $1,800 for 11-25, $3,200 for 26-50, larger sites quoted. A rule appearing on many pages counts once, because it is one fix. Nothing is quoted before the audit has run. Ongoing monitoring, a monthly re-scan with a diff and an alert, is $149/mo.
 
 ## Pages
 
