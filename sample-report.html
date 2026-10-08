@@ -203,6 +203,7 @@
   td { padding:var(--s3) var(--s4) var(--s3) 0; border-bottom:1px solid var(--rule); vertical-align:top; color:var(--ink-2) }
   th:last-child, td:last-child { padding-right:0 }
   td.n, th.n { text-align:right; white-space:nowrap }
+  th.wrap { white-space:normal }
   td.n { color:var(--ink); font-variant-numeric:tabular-nums lining-nums }
   footer { margin-top:var(--s8); border-top:1px solid var(--rule-firm); padding-top:var(--s5) }
   footer p { color:var(--ink-2); font-size:var(--step--2); line-height:1.6; max-width:var(--measure) }
@@ -260,13 +261,13 @@
 
 
 <dl class="ledger">
-  <div><dt class="s-critical">8</dt><dd>Critical</dd></div>
-  <div><dt class="s-serious">6</dt><dd>Serious</dd></div>
+  <div><dt class="s-critical">3</dt><dd>Critical</dd></div>
+  <div><dt class="s-serious">3</dt><dd>Serious</dd></div>
   <div><dt class="s-moderate zero">0</dt><dd>Moderate</dd></div>
   <div><dt class="s-minor zero">0</dt><dd>Minor</dd></div>
 </dl>
-<p class="totals"><b>14</b> total violations ·
-<b>6</b> distinct rules ·
+<p class="totals"><b>6</b> distinct issues, shown by severity above ·
+<b>22</b> instances ·
 <b>4</b> pages ·
 engines: axe-core and IBM Equal Access</p>
 
@@ -526,7 +527,7 @@ scanned pages walked, <b>62</b> interactive elements found and
     </div>
   </details>
 <h2 id="pages">Pages scanned</h2>
-<table><thead><tr><th>URL</th><th class="n">Violations</th><th class="n">Checks passed</th></tr></thead><tbody><tr><td><code>https://theaccessaudit.github.io/demo-store/</code></td><td class="n">4</td><td class="n">15</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/mug.html</code></td><td class="n">3</td><td class="n">11</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/bowl.html</code></td><td class="n">3</td><td class="n">11</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/cart.html</code></td><td class="n">4</td><td class="n">12</td></tr></tbody></table>
+<table><thead><tr><th>URL</th><th class="n wrap">Issues on this page</th><th class="n">Checks passed</th></tr></thead><tbody><tr><td><code>https://theaccessaudit.github.io/demo-store/</code></td><td class="n">4</td><td class="n">15</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/mug.html</code></td><td class="n">3</td><td class="n">11</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/bowl.html</code></td><td class="n">3</td><td class="n">11</td></tr><tr><td><code>https://theaccessaudit.github.io/demo-store/cart.html</code></td><td class="n">4</td><td class="n">12</td></tr></tbody></table>
 <h2 id="crosscheck">Independent second-engine cross-check</h2>
 <div class="note">Every page was also tested with IBM's Equal Access engine — a second,
 independently developed accessibility checker. Running two engines catches issues either one
