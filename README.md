@@ -8,6 +8,7 @@ anywhere on the site — a Content-Security-Policy of `default-src 'none'`
 is declared on every page.
 
 `sample-report.html` is a real, unedited report produced by the audit
-pipeline, run against Deque's intentionally broken demo site.
+pipeline, run against our own deliberately broken demo store (`demo-store/`,
+Northwind Ceramics).
 
 Contact: theaccessauditor@gmail.com

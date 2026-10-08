@@ -1,16 +1,3 @@
-# NOTE, updated 2026-09-03: this file is now LIVE and read.
-#
-# It used to sit at /theaccessaudit/robots.txt under GitHub Pages PROJECT
-# hosting, and crawlers only ever read robots.txt from the ORIGIN root
-# (RFC 9309), so nothing below was reaching anybody. Moving the repo to the
-# `theaccessaudit` org and naming it theaccessaudit.github.io makes this an
-# ORGANISATION site served from the origin root, so
-# https://theaccessaudit.github.io/robots.txt now resolves and the rules below
-# take effect. Same for llms.txt and /.well-known/.
-#
-# That was a side benefit of the move, not its purpose: the move was to get
-# Aaron's personal name out of the URL prospects see.
-
 User-agent: *
 Allow: /
 
@@ -41,6 +28,6 @@ Allow: /
 Sitemap: https://theaccessaudit.github.io/sitemap.xml
 
 # The deliberately broken demo store our published sample report audits.
-# Crawlable on purpose — our own scanner honours robots.txt, and blocking it
+# Crawlable on purpose — our own scanner honors robots.txt, and blocking it
 # here would stop us auditing it. Kept out of results by a noindex on every
 # page instead, and out of sitemap.xml.
