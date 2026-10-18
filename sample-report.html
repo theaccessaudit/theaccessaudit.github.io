@@ -167,6 +167,9 @@
   .ftitle { display:block; font-family:var(--serif); font-size:var(--step-1); font-weight:600; letter-spacing:-.012em; line-height:1.28 }
   .fmeta { display:block; margin-top:var(--s2); color:var(--ink-2); font-size:var(--step--1) }
   .fmeta b { color:var(--ink); font-variant-numeric:tabular-nums lining-nums }
+  .fwho { display:block; margin-top:var(--s1); color:var(--ink-2); font-size:var(--step--1) }
+  .fwho b { color:var(--ink) }
+  .fhow { color:var(--ink) }
   .fbody { padding:0 0 var(--s5) calc(2.5rem + var(--s4)); max-width:calc(var(--measure) + 3.5rem) }
   .fbody > * + * { margin-top:var(--s4) }
   .fbody p { color:var(--ink-2); font-size:var(--step--1) }
@@ -244,12 +247,12 @@
 
 <header class="letterhead">
   <a class="mark" href="https://theaccessaudit.github.io/">The Access Audit</a>
-  <p>Independent WCAG 2.1 AA testing<br>theaccessaudit.github.io · theaccessauditor@gmail.com</p>
+  <p>Independent WCAG 2.1 AA testing<br>theaccessaudit.github.io · aaron@theaccessauditor.com</p>
 </header>
 
 <div class="titleblock">
   <h1>Accessibility audit of <span class="host">theaccessaudit.github.io/demo-store/</span></h1>
-  <p class="standard">WCAG 2.1 Level A and AA · 4 pages tested · 8 October 2026</p>
+  <p class="standard">WCAG 2.1 Level A and AA · 4 pages tested · 17 October 2026</p>
   <p class="verdict"><b>6 distinct issues</b> were found across
        <b>4 pages</b>, appearing <b>22</b> times in total.
        Of those, <b>6</b>
@@ -295,11 +298,14 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="num">01</span>
       <span class="fhead">
         <span class="sev s-critical">critical</span>
-        <span class="ftitle">Buttons must have discernible text</span>
+        <span class="ftitle">Buttons a screen reader announces as just &quot;button&quot;, with no purpose</span>
         <span class="fmeta"><b>10 instances</b> across <b>4 pages</b> &middot; WCAG 4.1.2 (A)</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      
+      <p class="fdev"><span class="lbl">For your developer</span> Buttons must have discernible text <code>button-name</code></p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
       <pre><code>button:nth-child(1)
 &lt;button&gt;
@@ -352,11 +358,14 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="num">02</span>
       <span class="fhead">
         <span class="sev s-critical">critical</span>
-        <span class="ftitle">Images must have alternative text</span>
+        <span class="ftitle">Images a screen-reader user cannot hear described</span>
         <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 1.1.1 (A)</span>
+        <span class="fwho">Who can fix it: <b>you, in your store admin</b></span>
       </span>
     </summary>
     <div class="fbody">
+      
+      <p class="fdev"><span class="lbl">For your developer</span> Images must have alternative text <code>image-alt</code></p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code></p>
       <pre><code>article:nth-child(1) &gt; img
 &lt;img class=&quot;ph&quot; src=&quot;data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%203'%3E%3Crect%20width='4'%20height='3'%20fill='%23ded5c8'/%3E%3C/svg%3E&quot;&gt;</code></pre>
@@ -370,11 +379,14 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="num">03</span>
       <span class="fhead">
         <span class="sev s-critical">critical</span>
-        <span class="ftitle">Select element must have an accessible name</span>
+        <span class="ftitle">Drop-down menus with no name, so a screen-reader user cannot tell what they choose</span>
         <span class="fmeta"><b>4 instances</b> across <b>3 pages</b> &middot; WCAG 4.1.2 (A)</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      
+      <p class="fdev"><span class="lbl">For your developer</span> Select element must have an accessible name <code>select-name</code></p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
       <pre><code>select
 &lt;select&gt;
@@ -395,11 +407,14 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="num">04</span>
       <span class="fhead">
         <span class="sev s-serious">serious</span>
-        <span class="ftitle">Elements must meet minimum color contrast ratio thresholds</span>
+        <span class="ftitle">Text is too faint against its background for many visitors to read</span>
         <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 1.4.3 (AA)</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      
+      <p class="fdev"><span class="lbl">For your developer</span> Elements must meet minimum color contrast ratio thresholds <code>color-contrast</code></p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code></p>
       <pre><code>span
 &lt;span class=&quot;badge&quot;&gt;SALE&lt;/span&gt;</code></pre>
@@ -413,11 +428,14 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="num">05</span>
       <span class="fhead">
         <span class="sev s-serious">serious</span>
-        <span class="ftitle">Links must have discernible text</span>
+        <span class="ftitle">Links that a screen reader announces with no destination, just &quot;link&quot;</span>
         <span class="fmeta"><b>5 instances</b> across <b>4 pages</b> &middot; WCAG 2.4.4, 4.1.2 (A)</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      
+      <p class="fdev"><span class="lbl">For your developer</span> Links must have discernible text <code>link-name</code></p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
       <pre><code>a[href=&quot;#&quot;]:nth-child(1)
 &lt;a href=&quot;#&quot;&gt;
@@ -455,11 +473,14 @@ section is written to be handed straight to whoever maintains the site.</div>
       <span class="num">06</span>
       <span class="fhead">
         <span class="sev s-serious">serious</span>
-        <span class="ftitle">&lt;html&gt; element must have a lang attribute</span>
+        <span class="ftitle">The page does not state its language, so screen readers may read it in the wrong accent</span>
         <span class="fmeta"><b>1 instance</b> across <b>1 page</b> &middot; WCAG 3.1.1 (A)</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      
+      <p class="fdev"><span class="lbl">For your developer</span> &lt;html&gt; element must have a lang attribute <code>html-has-lang</code></p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
       <pre><code>html
 &lt;html&gt;</code></pre>
@@ -484,11 +505,13 @@ scanned pages walked, <b>62</b> interactive elements found and
       <span class="num">01</span>
       <span class="fhead">
         <span class="sev s-critical">critical</span>
-        <span class="ftitle">Interactive elements cannot be reached by keyboard</span>
+        <span class="ftitle">Controls a keyboard user cannot reach at all</span>
         <span class="fmeta">WCAG 2.1.1 &middot; 3 pages</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      <p class="fdev"><span class="lbl">For your developer</span> Interactive elements cannot be reached by keyboard</p>
       <p>4 interactive element(s) were never focused by the Tab key: div &quot;S&quot;, div &quot;M&quot;, div &quot;L&quot;, div &quot;Add to cart&quot;.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Use a real &lt;button&gt; or &lt;a href&gt; instead of a click handler on a &lt;div&gt; or &lt;span&gt;. If a custom control is unavoidable it needs tabindex=&quot;0&quot;, a role, and Enter/Space handling.</p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
@@ -500,11 +523,13 @@ scanned pages walked, <b>62</b> interactive elements found and
       <span class="num">02</span>
       <span class="fhead">
         <span class="sev s-serious">serious</span>
-        <span class="ftitle">No visible focus indicator</span>
+        <span class="ftitle">Keyboard users cannot see which link or button they are on</span>
         <span class="fmeta">WCAG 2.4.7 &middot; 4 pages</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      <p class="fdev"><span class="lbl">For your developer</span> No visible focus indicator</p>
       <p>16 of 17 focusable elements look identical whether or not they have keyboard focus: a &quot;The Access Audit&quot;, a &quot;Northwind Ceramics&quot;, a &quot;Shop&quot;, a &quot;Mugs&quot;, a &quot;Bowls&quot;, a &quot;Cart&quot;, button, button, and 8 more. A keyboard visitor cannot tell where they are on the page.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Remove any `outline: none` / `outline: 0` that is not immediately replaced by another visible indicator, and style :focus-visible explicitly — an outline with an offset, or a clear background or shadow change.</p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
@@ -516,11 +541,13 @@ scanned pages walked, <b>62</b> interactive elements found and
       <span class="num">03</span>
       <span class="fhead">
         <span class="sev s-moderate">moderate</span>
-        <span class="ftitle">No skip link before the navigation</span>
+        <span class="ftitle">Keyboard users have no shortcut past the menu</span>
         <span class="fmeta">WCAG 2.4.1 &middot; 4 pages</span>
+        <span class="fwho">Who can fix it: <b>your theme developer</b></span>
       </span>
     </summary>
     <div class="fbody">
+      <p class="fdev"><span class="lbl">For your developer</span> No skip link before the navigation</p>
       <p>The first thing the Tab key reaches is &quot;a &quot;The Access Audit&quot;&quot;. On a page with 17 focusable elements, a keyboard or screen-reader visitor has to walk the whole header on every page before reaching the content.</p>
       <p class="fixlink"><span class="lbl">Fix</span> Add a link to #main as the first element in the body, visually hidden until it receives focus, and give the main content that id.</p>
       <p class="affected"><span class="lbl">Affected pages</span> <code>https://theaccessaudit.github.io/demo-store/</code> <code>https://theaccessaudit.github.io/demo-store/mug.html</code> <code>https://theaccessaudit.github.io/demo-store/bowl.html</code> <code>https://theaccessaudit.github.io/demo-store/cart.html</code></p>
@@ -651,7 +678,7 @@ about whether any search engine or assistant will <em>use</em> the page. That is
 here, it is not something we control, and no one can promise it.</p>
 <div class="colophon">
   <span>The Access Audit · Independent WCAG 2.1 AA testing</span>
-  <span>theaccessaudit.github.io/demo-store/ · 8 October 2026</span>
+  <span>theaccessaudit.github.io/demo-store/ · 17 October 2026</span>
 </div>
 </footer>
 </main></body></html>

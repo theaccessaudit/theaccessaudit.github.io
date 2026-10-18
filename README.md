@@ -11,4 +11,4 @@ is declared on every page.
 pipeline, run against our own deliberately broken demo store (`demo-store/`,
 Northwind Ceramics).
 
-Contact: theaccessauditor@gmail.com
+Contact: aaron@theaccessauditor.com
