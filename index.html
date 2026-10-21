@@ -359,7 +359,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
  "@context": "https://schema.org",
  "@graph": [
   {
-   "@type": "ProfessionalService",
+   "@type": ["Organization", "ProfessionalService"],
    "@id": "https://theaccessaudit.github.io/#organization",
    "name": "The Access Audit",
    "url": "https://theaccessaudit.github.io/",
@@ -389,14 +389,22 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
    },
    "availableLanguage": "en",
    "founder": {
-    "@type": "Person",
-    "name": "Aaron Siebold"
+    "@id": "https://theaccessaudit.github.io/#founder"
    },
    "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "sales",
     "email": "aaron@theaccessauditor.com",
     "availableLanguage": "en"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://theaccessaudit.github.io/#founder",
+   "name": "Aaron Siebold",
+   "email": "aaron@theaccessauditor.com",
+   "worksFor": {
+    "@id": "https://theaccessaudit.github.io/#organization"
    }
   },
   {
@@ -415,12 +423,15 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
    "@id": "https://theaccessaudit.github.io/#webpage",
    "url": "https://theaccessaudit.github.io/",
    "name": "The Access Audit — WCAG 2.1 AA website accessibility audits",
-   "dateModified": "2026-10-09",
+   "dateModified": "2026-10-20",
    "isPartOf": {
     "@id": "https://theaccessaudit.github.io/#website"
    },
    "about": {
     "@id": "https://theaccessaudit.github.io/#organization"
+   },
+   "author": {
+    "@id": "https://theaccessaudit.github.io/#founder"
    },
    "primaryImageOfPage": "https://theaccessaudit.github.io/og.png"
   },

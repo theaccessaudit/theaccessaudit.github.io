@@ -84,18 +84,27 @@ main { padding-block: var(--s8) }
 .site-foot { border-top: 1px solid var(--rule); padding-block: var(--s6); font-size: var(--step--1) }
 .site-foot p { max-width: none }
 .site-foot strong { color: var(--ink) }
+.skip {
+  position: absolute; left: var(--s4); top: var(--s4); z-index: 20;
+  transform: translateY(-250%);
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--rule-firm); border-radius: 8px;
+  padding: var(--s3) var(--s4); font-weight: 600; text-decoration: none;
+}
+.skip:focus { transform: none }
 </style>
 </head>
 <body>
 
 <header class="masthead">
+  <a class="skip" href="#main">Skip to content</a>
   <div class="shell">
     <a class="wordmark" href="/">The Access Audit</a>
     <p>Independent WCAG 2.1 AA testing — Aaron Siebold</p>
   </div>
 </header>
 
-<main>
+<main id="main">
   <div class="shell">
     <h1>Privacy</h1>
     <p class="lede">Short version: this site collects nothing about you.</p>
