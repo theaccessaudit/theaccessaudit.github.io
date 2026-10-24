@@ -30,6 +30,10 @@ larger sites add $0.35 per additional page, capped at $900.
 - [Home](https://theaccessaudit.github.io/): the offer, pricing, and the limits of automated testing stated plainly.
 - [Sample report](https://theaccessaudit.github.io/sample-report.html): a real report from the pipeline, run against our own deliberately broken demo store (Northwind Ceramics), because no real business's failures belong in a marketing sample.
 
+## Mentions
+
+- [Peekwire, "5 WCAG 2.1 AA Accessibility Audit Services Worth Knowing in the US"](https://peekwire.com/article/5-wcag-21-aa-accessibility-audit-services-worth-knowing-in-the-us) (October 2026): a roundup that lists The Access Audit for small businesses and e-commerce.
+
 ## What we will not claim
 
 - No website can be certified "ADA compliant" — there is no official certification, and no audit or overlay widget prevents a claim from being filed.

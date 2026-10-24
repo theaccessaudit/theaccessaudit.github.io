@@ -187,6 +187,9 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
   font-variant-numeric: tabular-nums lining-nums;
 }
 .ledger dd { margin: var(--s3) 0 0; color: var(--ink-2); font-size: var(--step--1); line-height: 1.5; }
+.mention { margin-top: var(--s6); max-width: var(--measure); color: var(--ink-2); font-size: var(--step--1); line-height: 1.5; }
+.mention a { color: var(--ink); text-underline-offset: .18em; }
+.mention a:hover { color: var(--accent); }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -396,6 +399,16 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
     "contactType": "sales",
     "email": "aaron@theaccessauditor.com",
     "availableLanguage": "en"
+   },
+   "subjectOf": {
+    "@type": "Article",
+    "headline": "5 WCAG 2.1 AA Accessibility Audit Services Worth Knowing in the US",
+    "url": "https://peekwire.com/article/5-wcag-21-aa-accessibility-audit-services-worth-knowing-in-the-us",
+    "publisher": {
+     "@type": "Organization",
+     "name": "Peekwire",
+     "url": "https://peekwire.com/"
+    }
    }
   },
   {
@@ -423,7 +436,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
    "@id": "https://theaccessaudit.github.io/#webpage",
    "url": "https://theaccessaudit.github.io/",
    "name": "The Access Audit — WCAG 2.1 AA website accessibility audits",
-   "dateModified": "2026-10-20",
+   "dateModified": "2026-10-24",
    "isPartOf": {
     "@id": "https://theaccessaudit.github.io/#website"
    },
@@ -620,6 +633,9 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
         <dd>Monitoring, re-scan and alert</dd>
       </div>
     </dl>
+    <p class="mention">Listed by <a href="https://peekwire.com/article/5-wcag-21-aa-accessibility-audit-services-worth-knowing-in-the-us">Peekwire</a>
+    in its five US WCAG 2.1 AA audit services, October 2026, for &ldquo;transparent from-$149 pricing
+    and a developer-ready severity-ranked report.&rdquo;</p>
   </div>
 </section>
 
