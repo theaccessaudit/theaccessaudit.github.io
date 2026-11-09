@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src https://static.cloudflareinsights.com; connect-src https://cloudflareinsights.com; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Privacy — The Access Audit</title>
 <meta name="description" content="What The Access Audit collects (very little) and what happens to it.">
 <link rel="canonical" href="https://theaccessaudit.github.io/privacy.html">
@@ -138,5 +138,6 @@ main { padding-block: var(--s8) }
   </div>
 </footer>
 
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6c8e8911f5494dfdbbcbb864ae98430b"}'></script>
 </body>
 </html>

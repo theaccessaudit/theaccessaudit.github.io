@@ -1,0 +1,9 @@
+# The Cloudflare Web Analytics beacon token is public by design: it ships in every page's HTML.
+# Allow it on the beacon line only; every other rule and every other line is scanned as usual.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Cloudflare Web Analytics beacon token (public, served in page source)"
+regexTarget = "line"
+regexes = ['''data-cf-beacon='\{"token": "[0-9a-f]{32}"\}''']
