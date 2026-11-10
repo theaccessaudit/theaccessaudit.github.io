@@ -1,3 +1,4 @@
 / /index.html 200
 /demo-store/ /demo-store/index.html 200
 /demo-store /demo-store/ 301
+/favicon.ico /favicon.svg 301

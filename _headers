@@ -10,3 +10,11 @@
 # The sample report links out to Deque fix guides and uses inline styles too;
 # same policy applies. The only script is Cloudflare Web Analytics (cookieless visit counts);
 # CSP allows its one script host and one reporting host, nothing else.
+
+# Caching (Cloudflare Workers static assets honors _headers).
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.svg
+  Cache-Control: public, max-age=86400
+/og.png
+  Cache-Control: public, max-age=86400

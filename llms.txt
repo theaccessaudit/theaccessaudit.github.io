@@ -46,6 +46,6 @@ larger sites add $0.35 per additional page, capped at $900.
 
 ## Optional
 
-- [About](https://theaccessauditor.com/about.html): who runs the service (Aaron Siebold, a sole proprietor in Los Angeles), how a site is tested, what has not been done yet, and how a public body gets a written quote for the Title II deadline.
+- [About](https://theaccessauditor.com/about.html): who runs the service (Aaron Siebold, a sole proprietor in Los Angeles), how a site is tested, what has not been done yet, and a section for cities, counties and school districts (https://theaccessauditor.com/about.html#public): how a public body buys on a written quote or purchase order for the Title II deadline.
 - [Privacy](https://theaccessauditor.com/privacy.html)
 - [Terms of service](https://theaccessauditor.com/terms.html): what an audit is and is not, refunds, and the liability cap.
