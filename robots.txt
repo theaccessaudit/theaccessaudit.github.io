@@ -25,7 +25,7 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://theaccessaudit.github.io/sitemap.xml
+Sitemap: https://theaccessauditor.com/sitemap.xml
 
 # The deliberately broken demo store our published sample report audits.
 # Crawlable on purpose — our own scanner honors robots.txt, and blocking it

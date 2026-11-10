@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src https://static.cloudflareinsights.com; connect-src https://cloudflareinsights.com; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<title>About — The Access Audit</title>
+<meta name="description" content="Who runs The Access Audit, how a site gets tested, and what you can check yourself before you pay.">
+<link rel="canonical" href="https://theaccessauditor.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Access Audit">
+<meta property="og:title" content="About — The Access Audit">
+<meta property="og:description" content="Who runs The Access Audit, how a site gets tested, and what you can check yourself before you pay.">
+<meta property="og:url" content="https://theaccessauditor.com/about.html">
+<meta property="og:image" content="https://theaccessauditor.com/og.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* Newsreader — SIL Open Font License 1.1. See fonts/LICENSE-Newsreader.txt.
+   Absolute path so this renders identically wherever it is linked from. */
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader.woff2") format("woff2");
+  font-weight: 400 600; font-style: normal; font-display: swap;
+}
+:root {
+  color-scheme: light;
+  --paper:#fbfaf7; --surface:#ffffff; --sunk:#f4f2ed;
+  --ink:#14161a; --ink-2:#4a5058; --ink-3:#6b7280;
+  --rule:#e2ded6; --rule-firm:#cbc6bb;
+  --accent:#17408f; --accent-hi:#0f2f6d;
+  --measure:66ch; --shell:44rem;
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem; --s6:2rem; --s7:3rem; --s8:4rem;
+  --step--1: clamp(.82rem, .79rem + .13vw, .89rem);
+  --step-0:  clamp(1.0625rem, 1.03rem + .17vw, 1.15rem);
+  --step-1:  clamp(1.25rem, 1.18rem + .33vw, 1.45rem);
+  --step-2:  clamp(1.55rem, 1.4rem + .7vw, 2rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper:#0f1114; --surface:#16191e; --sunk:#1b1f25;
+    --ink:#eceef1; --ink-2:#b3bac4; --ink-3:#949ca8;
+    --rule:#272c34; --rule-firm:#3a414b;
+    --accent:#9dbaff; --accent-hi:#c3d3ff;
+  }
+}
+*, *::before, *::after { box-sizing: border-box }
+* { margin: 0 }
+html { -webkit-text-size-adjust: 100% }
+body {
+  background: var(--paper); color: var(--ink);
+  font: var(--step-0)/1.62 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-synthesis-weight: none; text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent); color: var(--paper) }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px }
+h1, h2 {
+  font-family: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 600; letter-spacing: -.018em; line-height: 1.14; text-wrap: balance;
+}
+h1 { font-size: var(--step-2); letter-spacing: -.026em }
+h2 { font-size: var(--step-1); letter-spacing: -.012em; margin-top: var(--s7) }
+p, li { text-wrap: pretty; color: var(--ink-2); max-width: var(--measure) }
+h1 + p, h2 + p { margin-top: var(--s3) }
+p + p, p + ul, ul + p { margin-top: var(--s4) }
+ul { padding-left: 1.2em }
+li + li { margin-top: var(--s2) }
+a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: .07em }
+a:hover { color: var(--accent-hi); text-decoration-thickness: .12em }
+.shell { max-width: var(--shell); margin-inline: auto; padding-inline: var(--s5) }
+.masthead { border-bottom: 1px solid var(--rule); padding-block: var(--s5) }
+.masthead .shell { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); align-items: baseline }
+.wordmark {
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: var(--step-1); font-weight: 600; letter-spacing: -.02em;
+  color: var(--ink); text-decoration: none;
+}
+.masthead p { color: var(--ink-2); font-size: var(--step--1); margin: 0 }
+main { padding-block: var(--s8) }
+.lede { font-size: var(--step-1); color: var(--ink-2); line-height: 1.5; margin-top: var(--s4) }
+.dated { font-size: var(--step--1); color: var(--ink-3); margin-top: var(--s5) }
+.back { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--rule) }
+.back a { color: var(--ink); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--rule-firm); padding-bottom: 2px }
+.back a:hover { color: var(--accent); border-bottom-color: var(--accent) }
+.site-foot { border-top: 1px solid var(--rule); padding-block: var(--s6); font-size: var(--step--1) }
+.site-foot p { max-width: none }
+.site-foot strong { color: var(--ink) }
+.skip {
+  position: absolute; left: var(--s4); top: var(--s4); z-index: 20;
+  transform: translateY(-250%);
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--rule-firm); border-radius: 8px;
+  padding: var(--s3) var(--s4); font-weight: 600; text-decoration: none;
+}
+.skip:focus { transform: none }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <a class="wordmark" href="/">The Access Audit</a>
+    <p>Independent WCAG 2.1 AA testing — Aaron Siebold</p>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+    <h1>About The Access Audit</h1>
+    <p class="lede">I&rsquo;m Aaron Siebold, and The Access Audit is just me: a sole proprietor in
+    Los Angeles, California. Whoever answers your email is the person who tests your site.</p>
+
+    <h2>Check the work before you pay</h2>
+    <p>Read the <a href="sample-report.html">sample report</a> first. It&rsquo;s a full report from the
+    same tools a paid order gets, run on a demo store I built and broke on purpose, with nothing cut out.</p>
+    <p>Then test this site. Run a free checker such as <a href="https://wave.webaim.org/">WAVE</a> on any
+    page here. If it finds a WCAG 2.1 AA failure, email me and I&rsquo;ll fix it.</p>
+    <p>You can also re-run any finding yourself. Both rule engines, axe-core and IBM Equal Access, are open
+    source. Each finding names the page, the element and the WCAG success criterion, so your developer can
+    run the same check and get the same result.</p>
+
+    <h2>How I test a site</h2>
+    <p>Two rule engines check every page, up to 100. A second, automated pass presses Tab through up to 12
+    key pages and records where a keyboard user gets stuck. On Audit and above, I also go through key pages
+    myself with VoiceOver, the screen reader built into every Mac, and write down what it reads out and
+    where it goes wrong.</p>
+
+    <h2>What I haven&rsquo;t done yet</h2>
+    <p>I haven&rsquo;t delivered a paid audit yet. So there are no client names, quotes or before-and-after
+    results on this page. When there are, a client goes on it only if they say yes.</p>
+    <p>I&rsquo;m not a lawyer. A report is a technical assessment, not legal advice, and it isn&rsquo;t a
+    certification either. The ADA has no official certification for websites.</p>
+
+    <h2 id="public">For cities, counties and school districts</h2>
+    <p>The Justice Department&rsquo;s Title II rule says state and local government websites must meet
+    WCAG 2.1 Level AA, the standard every report here tests against. Public entities with a population of
+    50,000 or more have to comply from April 26, 2027. Smaller ones, and special districts of any size,
+    have until April 26, 2028 (<a href="https://www.law.cornell.edu/cfr/text/28/35.200">28 CFR 35.200</a>).</p>
+    <p>Need a written quote for your purchasing office? Email the site address to
+    <a href="mailto:aaron@theaccessauditor.com">aaron@theaccessauditor.com</a>. You&rsquo;ll get a fixed
+    price and scope within one business day, plus a W-9 if you need it. A report covers web pages only,
+    not the PDFs or other documents they link to.</p>
+    <p class="back"><a href="/">Back to The Access Audit</a></p>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell">
+    <p><strong>The Access Audit</strong> — independent WCAG testing by Aaron Siebold.
+    <a href="mailto:aaron@theaccessauditor.com">aaron@theaccessauditor.com</a></p>
+  </div>
+</footer>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6c8e8911f5494dfdbbcbb864ae98430b"}'></script>
+</body>
+</html>

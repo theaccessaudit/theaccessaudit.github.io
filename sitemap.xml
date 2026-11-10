@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://theaccessaudit.github.io/</loc><lastmod>2026-10-24</lastmod></url>
-  <url><loc>https://theaccessaudit.github.io/sample-report.html</loc><lastmod>2026-10-20</lastmod></url>
-  <url><loc>https://theaccessaudit.github.io/privacy.html</loc><lastmod>2026-10-20</lastmod></url>
-  <url><loc>https://theaccessaudit.github.io/terms.html</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://theaccessauditor.com/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://theaccessauditor.com/sample-report.html</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://theaccessauditor.com/about.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://theaccessauditor.com/privacy.html</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://theaccessauditor.com/terms.html</loc><lastmod>2026-10-20</lastmod></url>
 </urlset>
