@@ -44,7 +44,7 @@ body {
   background: var(--paper); color: var(--ink);
   font: var(--step-0)/1.62 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-synthesis-weight: none; text-rendering: optimizeLegibility;
-  min-height: 100vh; display: flex; flex-direction: column;
+  min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
 }
 ::selection { background: var(--accent); color: var(--on-accent) }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px }
@@ -74,9 +74,9 @@ main p { margin-top: var(--s5); color: var(--ink-2); max-width: 54ch; text-wrap:
   font-weight: 600; font-size: var(--step-0); text-decoration: none;
   transition: background-color .15s ease;
 }
-.btn:hover { background: var(--accent-hi); color: var(--on-accent) }
+@media (hover: hover) { .btn:hover { background: var(--accent-hi); color: var(--on-accent) } }
 .btn.ghost { background: transparent; color: var(--accent); border-color: var(--rule-firm) }
-.btn.ghost:hover { background: transparent; border-color: var(--accent); color: var(--accent-hi) }
+@media (hover: hover) { .btn.ghost:hover { background: transparent; border-color: var(--accent); color: var(--accent-hi) } }
 @media (prefers-reduced-motion: reduce) { .btn { transition: none } }
 .skip {
   position: absolute; left: var(--s4); top: var(--s4); z-index: 20;
@@ -89,6 +89,7 @@ main p { margin-top: var(--s5); color: var(--ink-2); max-width: 54ch; text-wrap:
 .site-foot { border-top: 1px solid var(--rule); padding-block: var(--s6); font-size: var(--step--1) }
 .site-foot p { max-width: none }
 .site-foot strong { color: var(--ink) }
+a[href^="mailto:"], .btn { overflow-wrap: anywhere; }
 </style>
 </head>
 <body>

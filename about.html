@@ -69,7 +69,7 @@ p + p, p + ul, ul + p { margin-top: var(--s4) }
 ul { padding-left: 1.2em }
 li + li { margin-top: var(--s2) }
 a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: .07em }
-a:hover { color: var(--accent-hi); text-decoration-thickness: .12em }
+@media (hover: hover) { a:hover { color: var(--accent-hi); text-decoration-thickness: .12em } }
 .shell { max-width: var(--shell); margin-inline: auto; padding-inline: var(--s5) }
 .masthead { border-bottom: 1px solid var(--rule); padding-block: var(--s5) }
 .masthead .shell { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); align-items: baseline }
@@ -84,7 +84,7 @@ main { padding-block: var(--s8) }
 .dated { font-size: var(--step--1); color: var(--ink-3); margin-top: var(--s5) }
 .back { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--rule) }
 .back a { color: var(--ink); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--rule-firm); padding-bottom: 2px }
-.back a:hover { color: var(--accent); border-bottom-color: var(--accent) }
+@media (hover: hover) { .back a:hover { color: var(--accent); border-bottom-color: var(--accent) } }
 .site-foot { border-top: 1px solid var(--rule); padding-block: var(--s6); font-size: var(--step--1) }
 .site-foot p { max-width: none }
 .site-foot strong { color: var(--ink) }
@@ -96,6 +96,7 @@ main { padding-block: var(--s8) }
   padding: var(--s3) var(--s4); font-weight: 600; text-decoration: none;
 }
 .skip:focus { transform: none }
+a[href^="mailto:"], .btn { overflow-wrap: anywhere; }
 </style>
 </head>
 <body>

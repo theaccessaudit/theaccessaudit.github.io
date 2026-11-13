@@ -61,7 +61,7 @@
   }
   p { text-wrap:pretty }
   a { color:var(--accent); text-underline-offset:.18em; text-decoration-thickness:.07em }
-  a:hover { color:var(--accent-hi); text-decoration-thickness:.12em }
+  @media (hover: hover) { a:hover { color:var(--accent-hi); text-decoration-thickness:.12em } }
   strong,b { font-weight:600 }
   kbd {
     font-family:var(--sans); font-size:.82em; color:var(--ink);
@@ -83,7 +83,7 @@
   }
   .mark { font-family:var(--serif); font-size:var(--step-1); font-weight:600; letter-spacing:-.02em;
           color:var(--ink); text-decoration:none }
-  .mark:hover { color:var(--accent) }
+  @media (hover: hover) { .mark:hover { color:var(--accent) } }
   .letterhead p { color:var(--ink-2); font-size:var(--step--2); line-height:1.5 }
   .titleblock { margin-top:var(--s7) }
   .standard {
@@ -122,7 +122,7 @@
     border-bottom:1px solid var(--rule); padding:var(--s3) 0;
   }
   .contents a { color:var(--ink); text-decoration:none; font-weight:600 }
-  .contents a:hover { color:var(--accent); text-decoration:underline }
+  @media (hover: hover) { .contents a:hover { color:var(--accent); text-decoration:underline } }
   .contents span { color:var(--ink-3); font-size:var(--step--1); white-space:nowrap; font-variant-numeric:tabular-nums }
   .note {
     background:var(--sunk); border:1px solid var(--rule); border-radius:12px;
@@ -148,7 +148,7 @@
   }
   .finding[open] summary::after { transform:rotate(-135deg); margin-top:.95rem }
   @media (prefers-reduced-motion:reduce) { .finding summary::after { transition:none } }
-  .finding summary:hover .ftitle { color:var(--accent) }
+  @media (hover: hover) { .finding summary:hover .ftitle { color:var(--accent) } }
   .num {
     font-family:var(--serif); font-size:var(--step-1); font-weight:600;
     color:var(--ink-3); line-height:1.28;
@@ -184,7 +184,7 @@
   .findex .sev { display:inline; margin:0 }
   .findex .idx { font-family:var(--serif); font-size:var(--step-0); color:var(--ink-3); text-align:left }
   .findex a { color:var(--ink); text-decoration:none; font-weight:600 }
-  .findex a:hover { color:var(--accent); text-decoration:underline }
+  @media (hover: hover) { .findex a:hover { color:var(--accent); text-decoration:underline } }
   @media (max-width:34rem) {
     .findex thead th:nth-child(4), .findex thead th:nth-child(5),
     .findex td:nth-child(4), .findex td:nth-child(5) { display:none }

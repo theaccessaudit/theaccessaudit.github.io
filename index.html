@@ -114,7 +114,7 @@ h3 { font-size: var(--step-1); letter-spacing: -.012em; }
 p  { text-wrap: pretty; }
 
 a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: .07em; }
-a:hover { color: var(--accent-hi); text-decoration-thickness: .12em; }
+@media (hover: hover) { a:hover { color: var(--accent-hi); text-decoration-thickness: .12em; } }
 
 .skip {
   position: absolute; left: var(--s4); top: var(--s4); z-index: 20;
@@ -145,7 +145,7 @@ a:hover { color: var(--accent-hi); text-decoration-thickness: .12em; }
   border-bottom: 1px solid var(--rule-firm);
   transition: border-color .15s ease, color .15s ease;
 }
-.masthead nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+@media (hover: hover) { .masthead nav a:hover { color: var(--accent); border-bottom-color: var(--accent); } }
 .masthead nav a + a { margin-left: var(--s4); }
 @media (prefers-reduced-motion: reduce) { .masthead nav a { transition: none; } }
 
@@ -166,11 +166,11 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
   border-bottom: 1px solid var(--rule-firm); padding-bottom: 2px;
   transition: border-color .15s ease, color .15s ease;
 }
-.hero-link a:not(.btn):hover { color: var(--accent); border-bottom-color: var(--accent); }
+@media (hover: hover) { .hero-link a:not(.btn):hover { color: var(--accent); border-bottom-color: var(--accent); } }
 .hero-link .btn { text-decoration: none; }
 #sample p:has(.btn) { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4) var(--s5); }
 .quiet { color: var(--ink-2); text-underline-offset: .18em; }
-.quiet:hover { color: var(--accent); }
+@media (hover: hover) { .quiet:hover { color: var(--accent); } }
 @media (prefers-reduced-motion: reduce) { .hero-link a:not(.btn) { transition: none; } }
 
 /* The masthead-rule-headline-ledger stack, the same composition as the share card. */
@@ -191,7 +191,7 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 .ledger dd { margin: var(--s3) 0 0; color: var(--ink-2); font-size: var(--step--1); line-height: 1.5; }
 .mention { margin-top: var(--s6); max-width: var(--measure); color: var(--ink-2); font-size: var(--step--1); line-height: 1.5; }
 .mention a { color: var(--ink); text-underline-offset: .18em; }
-.mention a:hover { color: var(--accent); }
+@media (hover: hover) { .mention a:hover { color: var(--accent); } }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -201,12 +201,12 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
   font-weight: 600; font-size: var(--step-0); text-decoration: none;
   transition: background-color .15s ease, border-color .15s ease;
 }
-.btn:hover { background: var(--accent-hi); color: var(--on-accent); }
+@media (hover: hover) { .btn:hover { background: var(--accent-hi); color: var(--on-accent); } }
 .btn.ghost {
   background: transparent; color: var(--accent);
   border-color: var(--rule-firm);
 }
-.btn.ghost:hover { background: var(--sunk); border-color: var(--accent); color: var(--accent-hi); }
+@media (hover: hover) { .btn.ghost:hover { background: var(--sunk); border-color: var(--accent); color: var(--accent-hi); } }
 @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
 
 /* Evidence, set as a footnoted figure rather than three soft boxes. */
@@ -279,9 +279,11 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 }
 .tier-for { display: block; margin-top: var(--s2); color: var(--ink-2); font-weight: 400; font-size: var(--step--1); white-space: normal; max-width: 15rem; }
 .tier-buy { display: inline-block; margin-top: var(--s3); padding: 0.45em 0.9em; border: 1px solid var(--accent); border-radius: 4px; color: var(--accent); font-weight: 600; font-size: 0.92em; text-decoration: none; white-space: nowrap; }
-.tier-buy:hover, .tier-buy:focus-visible { background: var(--accent); color: var(--paper, #fff); }
+.tier-buy:focus-visible { background: var(--accent); color: var(--paper, #fff); }
+@media (hover: hover) { .tier-buy:hover { background: var(--accent); color: var(--paper, #fff); } }
 .pick .tier-buy { background: var(--accent); color: var(--paper, #fff); }
-.pick .tier-buy:hover, .pick .tier-buy:focus-visible { background: var(--ink); border-color: var(--ink); }
+.pick .tier-buy:focus-visible { background: var(--ink); border-color: var(--ink); }
+@media (hover: hover) { .pick .tier-buy:hover { background: var(--ink); border-color: var(--ink); } }
 .pick { background: var(--sunk); }
 .yes, .no { display: inline-flex; align-items: center; gap: var(--s2); }
 .yes svg, .no svg { flex: none; }
@@ -340,7 +342,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 }
 .faq details[open] summary::after { transform: rotate(-135deg); margin-top: -.16rem; }
 @media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
-.faq summary:hover { color: var(--accent); }
+@media (hover: hover) { .faq summary:hover { color: var(--accent); } }
 .faq p { color: var(--ink-2); padding-bottom: var(--s5); }
 
 .site-foot { padding-block: var(--s7); color: var(--ink-2); font-size: var(--step--1); }
@@ -358,6 +360,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
   /* Below this width the plan columns no longer fit, so say so. */
   .scroll-hint { display: block; }
 }
+a[href^="mailto:"], .btn { overflow-wrap: anywhere; }
 </style>
 <script type="application/ld+json">
 {
