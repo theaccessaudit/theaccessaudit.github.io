@@ -11,6 +11,30 @@
 # same policy applies. The only script is Cloudflare Web Analytics (cookieless visit counts);
 # CSP allows its one script host and one reporting host, nothing else.
 
+# Charset. Cloudflare sends text/html and text/plain with no charset (GitHub Pages
+# sent charset=utf-8), so a fetcher that trusts the header reads our dashes as
+# "â€”" in every title and in llms.txt. One rule per path: a header set by two
+# rules is joined with a comma. "/" and "/demo-store/" are rewrites in _redirects.
+# The txt and css files are named, not /*.txt: a missing /x.txt answers with the
+# HTML 404 page, which must not be labelled text/plain. A new text file fails
+# scanner/test-site-meta.ts until it has its line here.
+/
+  Content-Type: text/html; charset=utf-8
+/demo-store/
+  Content-Type: text/html; charset=utf-8
+/*.html
+  Content-Type: text/html; charset=utf-8
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+/fe31cacfa9f6ec0b837c1157cc7aa67c.txt
+  Content-Type: text/plain; charset=utf-8
+/fonts/LICENSE-Newsreader.txt
+  Content-Type: text/plain; charset=utf-8
+/demo-store/_store.css
+  Content-Type: text/css; charset=utf-8
+
 # Caching (Cloudflare Workers static assets honors _headers).
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable

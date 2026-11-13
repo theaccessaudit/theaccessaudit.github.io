@@ -17,11 +17,9 @@
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
 <meta name="twitter:card" content="summary_large_image">
-<!-- Why this file is built the way it is: docs/SITE_NOTES.md (not shipped). -->
+
 <style>
-/* Newsreader — SIL Open Font License 1.1. Latin subset, optical size pinned.
-   See fonts/LICENSE-Newsreader.txt. Display face only; body stays on the
-   system stack so text renders instantly and never shifts. */
+/* Newsreader — SIL Open Font License 1.1. See fonts/LICENSE-Newsreader.txt. */
 @font-face {
   font-family: "Newsreader";
   src: url("fonts/newsreader.woff2") format("woff2");
@@ -32,7 +30,7 @@
 
 :root {
   color-scheme: light;
-  /* Ink on warm paper — the deliverable is a document, so the site reads like one. */
+
   --paper:      #fbfaf7;
   --surface:    #ffffff;
   --sunk:       #f4f2ed;
@@ -50,7 +48,6 @@
   --measure: 66ch;
   --shell: 68rem;
 
-  /* 4px spacing scale */
   --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem;
   --s6:2rem; --s7:3rem; --s8:4rem; --s9:6rem;
 
@@ -91,7 +88,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Browser surfaces belong to the design too. */
 ::selection { background: var(--accent); color: var(--on-accent); }
 :focus-visible {
   outline: 3px solid var(--accent);
@@ -155,12 +151,10 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 .lede { font-size: var(--step-1); color: var(--ink-2); max-width: var(--measure); line-height: 1.5; }
 .prose { max-width: var(--measure); }
 
-/* ── Hero ─────────────────────────────────────────────────────────── */
 .hero { padding-block: clamp(var(--s7), 7vw, var(--s9)) var(--s8); }
 .hero h1 { max-width: 20ch; }
 .hero-link { margin-top: var(--s6); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4) var(--s5); }
-/* An editorial link, not a default browser blue one: ink-coloured with a
-   hairline rule under it that firms up on hover. */
+
 .hero-link a:not(.btn) {
   color: var(--ink); font-weight: 600; text-decoration: none;
   border-bottom: 1px solid var(--rule-firm); padding-bottom: 2px;
@@ -173,7 +167,6 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 @media (hover: hover) { .quiet:hover { color: var(--accent); } }
 @media (prefers-reduced-motion: reduce) { .hero-link a:not(.btn) { transition: none; } }
 
-/* The masthead-rule-headline-ledger stack, the same composition as the share card. */
 .ledger {
   margin: var(--s8) 0 0;
   border-top: 1px solid var(--rule-firm);
@@ -209,7 +202,6 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 @media (hover: hover) { .btn.ghost:hover { background: var(--sunk); border-color: var(--accent); color: var(--accent-hi); } }
 @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
 
-/* Evidence, set as a footnoted figure rather than three soft boxes. */
 .evidence { margin-top: var(--s7); border-top: 1px solid var(--rule-firm); }
 .evidence dl { margin: 0; }
 .evidence div {
@@ -226,7 +218,6 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 }
 .evidence dd { margin: 0; color: var(--ink-2); align-self: center; font-size: var(--step--1); line-height: 1.5; }
 
-/* ── Process ──────────────────────────────────────────────────────── */
 .process { counter-reset: step; list-style: none; padding: 0; margin-top: var(--s6); }
 .process li {
   counter-increment: step;
@@ -245,7 +236,6 @@ h2 + p, h2 + .lede { margin-top: var(--s4); }
 .process h3 { margin-bottom: var(--s2); }
 .process p { color: var(--ink-2); max-width: 58ch; }
 
-/* ── Pricing table ────────────────────────────────────────────────── */
 .table-wrap {
   margin-top: var(--s3);
   overflow-x: auto;
@@ -260,8 +250,7 @@ caption { text-align: left; padding: var(--s4) var(--s5); color: var(--ink-2); f
 th, td { text-align: left; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--rule); vertical-align: top; font-size: var(--step--1); }
 thead th { vertical-align: top; border-bottom: 1px solid var(--rule-firm); }
 tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
-/* The row header stays put while the plan columns scroll, so a narrow screen
-   never shows a column of ticks with nothing to attach them to. */
+
 th[scope="row"] {
   font-weight: 600; color: var(--ink);
   position: sticky; left: 0; z-index: 1;
@@ -305,7 +294,6 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 }
 .scale .worked b { color: var(--ink); font-weight: 600; }
 
-/* ── Reasons ──────────────────────────────────────────────────────── */
 .reasons { display: grid; gap: var(--s6); margin-top: var(--s6); }
 @media (min-width: 50rem) { .reasons { grid-template-columns: 1fr 1fr; gap: var(--s7); } }
 .reasons section { padding: 0; border: 0; }
@@ -324,7 +312,6 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
 }
 .honest p + p { margin-top: var(--s4); }
 
-/* ── FAQ ──────────────────────────────────────────────────────────── */
 .faq { margin-top: var(--s6); max-width: var(--measure); }
 .faq details { border-top: 1px solid var(--rule); }
 .faq details:last-of-type { border-bottom: 1px solid var(--rule); }
@@ -357,7 +344,7 @@ thead td:first-child { position: sticky; left: 0; z-index: 1; background: var(--
     padding: var(--s4) 0; border-right: 0; border-bottom: 1px solid var(--rule);
   }
   .ledger > div:last-child { border-bottom: 0; }
-  /* Below this width the plan columns no longer fit, so say so. */
+
   .scroll-hint { display: block; }
 }
 a[href^="mailto:"], .btn { overflow-wrap: anywhere; }
@@ -1042,7 +1029,6 @@ a[href^="mailto:"], .btn { overflow-wrap: anywhere; }
     <p>Replies within one business day. <a href="about.html">About</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms of service</a></p>
   </div>
 </footer>
-
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6c8e8911f5494dfdbbcbb864ae98430b"}'></script>
 </body>
